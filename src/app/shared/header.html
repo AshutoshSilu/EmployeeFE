@@ -1,0 +1,48 @@
+<header class="header">
+  <div class="header-container">
+    <div class="header-left">
+      <div class="logo">
+        <span class="logo-icon">☕</span>
+        <span class="logo-text">Caffeine Capper</span>
+      </div>
+      <div class="menu-container">
+        <button class="menu-btn" (click)="toggleMenu()">
+          <span class="menu-text">Menu</span>
+        </button>
+        @if (showMenuDropdown) {
+        <app-menu></app-menu>
+        }
+      </div>
+      <nav class="nav-links" [class.active]="isMenuOpen">
+        <a href="#" class="nav-link">
+          <span class="nav-icon">🎯</span>
+          Our Vision
+        </a>
+        <a href="#" class="nav-link">
+          <span class="nav-icon">👥</span>
+          Join our community
+        </a>
+        <a href="#" class="nav-link" (click)="navigateToEmployee()">
+          <span class="nav-icon">💼</span>
+          Employee Portal
+        </a>
+        <a href="#" class="nav-link">
+          <span class="nav-icon">📞</span>
+          Contact Us
+        </a>
+      </nav>
+    </div>
+    
+    <div class="header-right">
+      <button class="auth-btn registration-btn" (click)="navigateToRegistration()">
+        <span class="btn-icon">📝</span>
+        Registration
+      </button>
+      <button class="auth-btn login-btn" (click)="navigateToLogin()">
+        <span class="btn-icon">🔐</span>
+        Login
+      </button>
+    </div>
+  </div>
+  <div class="header-glow"></div>
+</header>

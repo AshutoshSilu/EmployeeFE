@@ -1,0 +1,22 @@
+.employee-details {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.employee-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.employee-info h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.employee-info p {
+  margin: 0.25rem 0;
+}

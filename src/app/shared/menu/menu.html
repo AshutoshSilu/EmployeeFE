@@ -1,0 +1,30 @@
+<div class="menu-dropdown">
+  <div class="menu-header">
+    <h4>Menu Items</h4>
+    <button class="add-btn" (click)="toggleAddForm()">+ Add</button>
+  </div>
+
+  @if (showAddForm()) {
+  <div class="add-form">
+    <form [formGroup]="addMenuForm" (ngSubmit)="addMenuItem()">
+      <input type="text" class="form-input" formControlName="name" placeholder="Menu Name">
+      <input type="text" class="form-input" formControlName="url" placeholder="URL">
+      <input type="text" class="form-input" formControlName="icon" placeholder="Icon (emoji)">
+      <div class="form-actions">
+        <button type="submit" class="save-btn" [disabled]="addMenuForm.invalid">Save</button>
+        <button type="button" class="cancel-btn" (click)="toggleAddForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  }
+
+  <div class="menu-list">
+    @for (item of menuItems(); track item.id) {
+    <div class="menu-item">
+      <span class="menu-icon">{{ item.icon }}</span>
+      <span class="menu-name">{{ item.name }}</span>
+      <button class="delete-btn" (click)="deleteMenuItem(item.id)">×</button>
+    </div>
+    }
+  </div>
+</div>

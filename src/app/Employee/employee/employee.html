@@ -1,0 +1,323 @@
+<app-header></app-header>
+<div class="employee-portal-overlay">
+  <div class="portal-container">
+    <div class="portal-header">
+      <h3>☕ Employee Portal</h3>
+      <button class="portal-close" (click)="closePortal()">
+        ×
+      </button>
+    </div>
+    <div class="portal-content">
+      <!-- Navigation Tabs -->
+      <ul class="nav nav-tabs nav-tabs-dark d-flex justify-content-center">
+        <li class="nav-item">
+          <button class="nav-link" [class.active]="activeTab() === 'dashboard'"
+            (click)="setActiveTab('dashboard')">Dashboard</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" [class.active]="activeTab() === 'employees'"
+            (click)="setActiveTab('employees')">Employees</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" [class.active]="activeTab() === 'profile'"
+            (click)="setActiveTab('profile')">Profile</button>
+        </li>
+      </ul>
+
+  <!-- Content -->
+  <div class="tab-content mt-4">
+    @switch (activeTab()) {
+    @case ('dashboard') {
+    <div class="dashboard-grid">
+      <div class="stat-card">
+        <div class="stat-icon employees-icon">👥</div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ employees().length }}</h3>
+          <p class="stat-label">Total Employees</p>
+        </div>
+        <div class="stat-trend">↗️ +12%</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon departments-icon">🏢</div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ getDepartmentCount() }}</h3>
+          <p class="stat-label">Departments</p>
+        </div>
+        <div class="stat-trend">📊 Active</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon recent-icon">⭐</div>
+        <div class="stat-content">
+          <h3 class="stat-number">{{ getRecentCount() }}</h3>
+          <p class="stat-label">Recent Registrations</p>
+        </div>
+        <div class="stat-trend">🔥 Hot</div>
+      </div>
+    </div>
+    }
+    @case ('employees') {
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4>Employee Management</h4>
+      <button class="btn btn-cyan" (click)="addEmployee()">Add Employee</button>
+    </div>
+
+    <div class="employees-container">
+      <div class="employees-grid">
+        @for (employee of employees(); track employee.employeeId) {
+        <div class="employee-card" (click)="viewEmployeeDetails(employee)">
+          <div class="employee-avatar">
+            <div class="avatar-circle">{{ employee.firstName.charAt(0) }}{{ employee.lastName.charAt(0) }}</div>
+            <div class="employee-id">#{{ employee.employeeId }}</div>
+          </div>
+          <div class="employee-details">
+            <h4 class="employee-name">{{ employee.firstName }} {{ employee.lastName }}</h4>
+            <p class="employee-email">{{ employee.email }}</p>
+            <span class="department-tag">{{ employee.department }}</span>
+          </div>
+          <div class="employee-actions" (click)="$event.stopPropagation()">
+            <button class="action-btn edit-btn" (click)="editEmployee(employee)" title="Edit">
+              ✏️
+            </button>
+            <button class="action-btn delete-btn" (click)="deleteEmployee(employee.employeeId)" title="Delete">
+              🗑️
+            </button>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    }
+    @case ('profile') {
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-cyan text-white">
+            <h5 class="mb-0">My Profile</h5>
+          </div>
+          @if (currentUser()) {
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-sm-4"><strong>Employee ID:</strong></div>
+              <div class="col-sm-8">{{ currentUser()?.employeeId }}</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-4"><strong>Name:</strong></div>
+              <div class="col-sm-8">{{ currentUser()?.firstName }} {{ currentUser()?.lastName }}</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-4"><strong>Email:</strong></div>
+              <div class="col-sm-8">{{ currentUser()?.email }}</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-4"><strong>Department:</strong></div>
+              <div class="col-sm-8">
+                <span class="badge badge-cyan">{{ currentUser()?.department }}</span>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+    }
+    }
+  </div>
+
+  <!-- Add Employee Modal -->
+  @if (showAddModal()) {
+  <div class="modal-backdrop" [class.show]="showAddModal()" (click)="closeModal()"></div>
+  <div class="registration-popup" [class.show]="showAddModal()">
+    <app-registration (closeRegistration)="closeModal()"></app-registration>
+  </div>
+  }
+
+  <!-- Edit Employee Modal -->
+  @if (showEditModal()) {
+  <div class="modal-backdrop" [class.show]="showEditModal()" (click)="closeEditModal()"></div>
+  <div class="edit-employee-popup" [class.show]="showEditModal()">
+    <div class="edit-container">
+      <div class="edit-card">
+        <div class="edit-header">
+          <h3 class="edit-title">✏️ Edit Employee</h3>
+          <button type="button" class="edit-close" (click)="closeEditModal()">×</button>
+        </div>
+        <form [formGroup]="editEmployeeForm" (ngSubmit)="onSubmitEditEmployee()" (click)="$event.stopPropagation()">
+          <div class="edit-body">
+            <div class="mb-3">
+              <label class="form-label">First Name *</label>
+              <input type="text" class="form-control"
+                [class.is-invalid]="editEmployeeForm.get('firstName')?.invalid && editEmployeeForm.get('firstName')?.touched"
+                formControlName="firstName" placeholder="Enter first name">
+              @if (editEmployeeForm.get('firstName')?.invalid && editEmployeeForm.get('firstName')?.touched) {
+              <div class="invalid-feedback">
+                @if (editEmployeeForm.get('firstName')?.errors?.['required']) {
+                <small>First name is required</small>
+                }
+                @if (editEmployeeForm.get('firstName')?.errors?.['minlength']) {
+                <small>First name must be at least 2 characters</small>
+                }
+              </div>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Last Name *</label>
+              <input type="text" class="form-control"
+                [class.is-invalid]="editEmployeeForm.get('lastName')?.invalid && editEmployeeForm.get('lastName')?.touched"
+                formControlName="lastName" placeholder="Enter last name">
+              @if (editEmployeeForm.get('lastName')?.invalid && editEmployeeForm.get('lastName')?.touched) {
+              <div class="invalid-feedback">
+                @if (editEmployeeForm.get('lastName')?.errors?.['required']) {
+                <small>Last name is required</small>
+                }
+                @if (editEmployeeForm.get('lastName')?.errors?.['minlength']) {
+                <small>Last name must be at least 2 characters</small>
+                }
+              </div>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email *</label>
+              <input type="email" class="form-control"
+                [class.is-invalid]="editEmployeeForm.get('email')?.invalid && editEmployeeForm.get('email')?.touched"
+                formControlName="email" placeholder="Enter email address">
+              @if (editEmployeeForm.get('email')?.invalid && editEmployeeForm.get('email')?.touched) {
+              <div class="invalid-feedback">
+                @if (editEmployeeForm.get('email')?.errors?.['required']) {
+                <small>Email is required</small>
+                }
+                @if (editEmployeeForm.get('email')?.errors?.['email']) {
+                <small>Please enter a valid email address</small>
+                }
+              </div>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Department *</label>
+              <select class="form-select"
+                [class.is-invalid]="editEmployeeForm.get('department')?.invalid && editEmployeeForm.get('department')?.touched"
+                formControlName="department">
+                <option value="">Select Department</option>
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Operations">Operations</option>
+              </select>
+              @if (editEmployeeForm.get('department')?.invalid && editEmployeeForm.get('department')?.touched) {
+              <div class="text-danger">
+                <small>Please select a department</small>
+              </div>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Profile Image (Optional)</label>
+              <input type="file" class="form-control" accept="image/*" (change)="onEditImageSelect($event)">
+              @if (editSelectedImageUrl) {
+              <div class="mt-2">
+                <img [src]="editSelectedImageUrl" alt="Preview" class="img-thumbnail"
+                  style="max-width: 100px; max-height: 100px;">
+              </div>
+              }
+            </div>
+          </div>
+          <div class="edit-footer">
+            <button type="button" class="btn-cancel" (click)="closeEditModal()">Cancel</button>
+            <button type="submit" class="btn-update" [disabled]="editEmployeeForm.invalid">✨ Update Employee</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  }
+
+  <!-- Employee Details Modal -->
+  @if (showDetailsModal()) {
+  <div class="modal fade" [class.show]="showDetailsModal()" [style.display]="showDetailsModal() ? 'block' : 'none'">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content employee-details-modal">
+        <div class="modal-header gradient-header">
+          <div class="header-content">
+            <div class="company-logo">
+              <span class="logo-icon">☕</span>
+              <h5 class="modal-title">The Caffeine Capper</h5>
+            </div>
+            <p class="company-tagline">Employee Profile</p>
+          </div>
+          <button type="button" class="btn-close modern-close" (click)="closeDetailsModal()">
+            <span>X</span>
+          </button>
+        </div>
+        <div class="modal-body employee-profile">
+          <div class="row g-4">
+            <div class="col-md-4 text-center">
+              <div class="profile-section">
+                <div class="profile-image-wrapper">
+                  <img [src]="selectedImageUrl || 'assets/default-avatar.png'" alt="Profile" class="profile-image">
+                  <div class="image-overlay">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="employee-id-badge">
+                  <span class="badge-label">ID:</span>
+                  <span class="badge-value">{{ selectedEmployee()?.employeeId }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="employee-info">
+                <div class="info-header">
+                  <h4 class="employee-name">{{ selectedEmployee()?.firstName }} {{ selectedEmployee()?.lastName }}</h4>
+                  <span class="department-badge">{{ selectedEmployee()?.department }}</span>
+                </div>
+                <div class="info-grid">
+                  <div class="info-item">
+                    <div class="info-icon">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                      <label>Email Address</label>
+                      <span>{{ selectedEmployee()?.email }}</span>
+                    </div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-icon">
+                      <i class="fas fa-building"></i>
+                    </div>
+                    <div class="info-content">
+                      <label>Department</label>
+                      <span>{{ selectedEmployee()?.department }}</span>
+                    </div>
+                  </div>
+                  <div class="info-item">
+                    <div class="info-icon">
+                      <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="info-content">
+                      <label>Status</label>
+                      <span class="status-active">Active Employee</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer modern-footer">
+          <button type="button" class="btn btn-print" (click)="generatePDF()">
+            <i class="fas fa-print me-2"></i>Print PDF
+          </button>
+          <button type="button" class="btn btn-modern" (click)="closeDetailsModal()">
+            <i class="fas fa-times me-2"></i>Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

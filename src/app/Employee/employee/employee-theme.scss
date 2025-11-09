@@ -1,0 +1,211 @@
+// Cafe Theme Colors matching home component
+.btn-cyan {
+  background: linear-gradient(45deg, #0f3460, #533483);
+  color: white;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+    border-color: #00d4ff;
+    color: white;
+  }
+}
+
+.btn-outline-cyan {
+  border: 1px solid #00d4ff;
+  color: #00d4ff;
+  background: transparent;
+  
+  &:hover {
+    background: #00d4ff;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  }
+}
+
+.text-cyan {
+  color: #00d4ff !important;
+}
+
+.bg-cyan {
+  background: linear-gradient(45deg, #1a1a2e, #16213e) !important;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.badge-cyan {
+  background: linear-gradient(45deg, #00d4ff, #5b86e5);
+  color: white;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00d4ff, #5b86e5, #36d1dc);
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(0, 212, 255, 0.25);
+    border-color: #00d4ff;
+  }
+  
+  .card-title {
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    font-weight: 600;
+  }
+  
+  .card-header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+    color: white;
+    
+    h5 {
+      color: #00d4ff;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+  }
+  
+  .card-body {
+    background: rgba(0, 0, 0, 0.1);
+    
+    .text-primary, .text-success, .text-info {
+      background: linear-gradient(45deg, #00d4ff, #5b86e5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+      font-weight: bold;
+    }
+  }
+}
+
+.table-dark-cyan {
+  background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+  color: white;
+  
+  th {
+    border-color: rgba(0, 212, 255, 0.3);
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+  }
+}
+
+.employee-details-modal {
+  .modal-content {
+    background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+  }
+
+  .gradient-header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 75%, #533483 100%);
+    border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00d4ff, #5b86e5, #36d1dc);
+    }
+  }
+
+  .company-logo .modal-title {
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  }
+
+  .profile-image-wrapper {
+    border: 3px solid #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  }
+
+  .employee-id-badge {
+    background: linear-gradient(45deg, #00d4ff, #5b86e5);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  }
+
+  .employee-name {
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  }
+
+  .department-badge {
+    background: linear-gradient(45deg, #533483, #0f3460);
+    box-shadow: 0 4px 10px rgba(83, 52, 131, 0.3);
+  }
+
+  .info-item {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(0, 212, 255, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+    }
+  }
+
+  .info-icon {
+    color: #00d4ff;
+  }
+
+  .btn-print {
+    background: linear-gradient(45deg, #00d4ff, #5b86e5);
+    border: none;
+    
+    &:hover {
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+    }
+  }
+
+  .btn-modern {
+    background: linear-gradient(45deg, #533483, #0f3460);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    
+    &:hover {
+      border-color: #00d4ff;
+    }
+  }
+}
+
+.nav-tabs-dark {
+  .nav-link {
+    background: rgba(26, 26, 46, 0.8);
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    
+    &.active {
+      background: linear-gradient(45deg, #00d4ff, #5b86e5);
+      color: white;
+      border-color: #00d4ff;
+    }
+    
+    &:hover {
+      background: rgba(0, 212, 255, 0.1);
+      color: #00d4ff;
+    }
+  }
+}

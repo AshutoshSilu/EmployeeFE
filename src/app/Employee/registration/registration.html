@@ -1,0 +1,76 @@
+<div class="registration-container">
+  <div class="registration-card">
+    <div class="registration-header">
+      <h3 class="registration-title">👥 Employee Registration</h3>
+      <button type="button" class="registration-close" (click)="goBack()">
+        ×
+      </button>
+    </div>
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="registration-body">
+          <div class="mb-3">
+            <label class="form-label">First Name *</label>
+            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter first name">
+            @if (registrationForm.get('firstName')?.invalid && registrationForm.get('firstName')?.touched) {
+              <div class="text-danger">
+                First name is required
+              </div>
+            }
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Last Name *</label>
+            <input type="text" class="form-control" formControlName="lastName" placeholder="Enter last name">
+            @if (registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched) {
+              <div class="text-danger">
+                Last name is required
+              </div>
+            }
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter email address">
+            @if (registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched) {
+              <div class="text-danger">
+                Valid email is required
+              </div>
+            }
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Department *</label>
+            <select class="form-select" formControlName="department">
+              <option value="">Select Department</option>
+              <option value="IT">IT</option>
+              <option value="HR">HR</option>
+              <option value="Finance">Finance</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Operations">Operations</option>
+            </select>
+            @if (registrationForm.get('department')?.invalid && registrationForm.get('department')?.touched) {
+              <div class="text-danger">
+                Department is required
+              </div>
+            }
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Profile Image</label>
+            <input type="file" class="form-control" accept="image/*" (change)="onImageSelect($event)">
+            @if (selectedImageUrl) {
+              <div class="mt-2">
+                <img [src]="selectedImageUrl" alt="Preview" class="img-thumbnail" style="max-width: 100px; max-height: 100px;">
+              </div>
+            }
+          </div>
+    </div>
+    <div class="registration-footer">
+      <button type="button" class="btn-cancel" (click)="goBack()">Cancel</button>
+      <button type="submit" class="btn-register" [disabled]="registrationForm.invalid">
+        ✨ Register Employee
+      </button>
+    </div>
+    </form>
+  </div>
+</div>
