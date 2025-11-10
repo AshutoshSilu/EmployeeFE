@@ -1,60 +1,64 @@
+<app-header></app-header>
 <div class="dashboard-container">
-  <app-header></app-header>
-  
-  <main class="main-content">
-    <div class="dashboard-grid">
-      <div class="profile-card">
-        <div class="card-header">
-          <h2>My Profile</h2>
-        </div>
-        <div class="profile-avatar">
-          <div class="avatar-circle">{{user.name?.charAt(0)}}</div>
-        </div>
-        <div class="profile-details">
-          <div class="detail-item">
-            <span class="label">Full Name</span>
-            <span class="value">{{user.name}}</span>
-          </div>
-          <div class="detail-item">
-            <span class="label">Email Address</span>
-            <span class="value">{{user.email}}</span>
-          </div>
-          <div class="detail-item">
-            <span class="label">Department</span>
-            <span class="value">{{user.department}}</span>
-          </div>
-          <div class="detail-item">
-            <span class="label">Position</span>
-            <span class="value">{{user.position}}</span>
-          </div>
-          <div class="detail-item">
-            <span class="label">Join Date</span>
-            <span class="value">{{user.joinDate}}</span>
+  <div class="dashboard-hero">
+    <div class="hero-content">
+      <div class="welcome-section">
+        <h1 class="hero-title">Welcome Back!</h1>
+        @if (currentUser()) {
+        <div class="user-info">
+          <div class="user-avatar">{{ currentUser().username?.charAt(0).toUpperCase() }}</div>
+          <div class="user-details">
+            <h2 class="username">{{ currentUser().username }}</h2>
+            <p class="user-role">Administrator</p>
           </div>
         </div>
+        }
       </div>
-      
-      <div class="stats-card">
-        <div class="card-header">
-          <h2>Quick Stats</h2>
+      <div class="quick-stats">
+        <div class="stat-item">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value">150</div>
+          <div class="stat-label">Employees</div>
         </div>
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">5</div>
-            <div class="stat-label">Projects</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">12</div>
-            <div class="stat-label">Tasks</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">98%</div>
-            <div class="stat-label">Performance</div>
-          </div>
+        <div class="stat-item">
+          <div class="stat-icon">📊</div>
+          <div class="stat-value">5</div>
+          <div class="stat-label">Departments</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-value">12</div>
+          <div class="stat-label">New This Month</div>
         </div>
       </div>
     </div>
-  </main>
+  </div>
   
-  <app-footer></app-footer>
+  <div class="dashboard-content">
+    <div class="section-title">
+      <h3>Quick Actions</h3>
+      <p>Manage your organization efficiently</p>
+    </div>
+    <div class="action-cards">
+      <div class="action-card primary" (click)="navigateToEmployee()">
+        <div class="card-icon">👥</div>
+        <h4>Employee Management</h4>
+        <p>View, add, edit and manage employee records</p>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="action-card secondary">
+        <div class="card-icon">📈</div>
+        <h4>Reports & Analytics</h4>
+        <p>Generate reports and view analytics</p>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="action-card tertiary">
+        <div class="card-icon">⚙️</div>
+        <h4>Settings</h4>
+        <p>Configure system settings and preferences</p>
+        <div class="card-arrow">→</div>
+      </div>
+    </div>
+  </div>
 </div>
+<app-footer></app-footer>

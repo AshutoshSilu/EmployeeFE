@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeaderComponent } from '../../shared/header';
 import { FooterComponent } from '../../shared/footer';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -11,9 +12,13 @@ import { FooterComponent } from '../../shared/footer';
 })
 export class HomePageComponent {
   private router = inject(Router);
+  private authService = inject(AuthService);
+  
+  isLoggedIn = computed(() => this.authService.isLoggedIn());
+  showLoginPopup = signal(false);
 
   navigateToLogin() {
-    this.router.navigate(['/login']);
+    this.showLoginPopup.set(true);
   }
 
   navigateToRegistration() {
@@ -21,6 +26,14 @@ export class HomePageComponent {
   }
 
   navigateToEmployeePortal() {
-    this.router.navigate(['/employee-portal']);
+    if (this.isLoggedIn()) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/employee']);
+    }
+  }
+  
+  closeLoginPopup() {
+    this.showLoginPopup.set(false);
   }
 }

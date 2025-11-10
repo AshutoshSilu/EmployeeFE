@@ -3,25 +3,23 @@
   position: relative;
   width: 100%;
   min-height: calc(100vh - 140px);
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 70px;
 }
 
 .portal-container {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 25px;
-  box-shadow: 0 30px 80px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 30px 80px rgba(0, 212, 255, 0.2);
   backdrop-filter: blur(20px);
   border: 2px solid rgba(0, 212, 255, 0.3);
   width: 100%;
   max-width: 1200px;
-  max-height: 90vh;
-  overflow-y: auto;
+  min-height: 80vh;
   position: relative;
 }
 
@@ -60,6 +58,7 @@
 .portal-content {
   padding: 2rem;
   background: transparent;
+  color: white;
 }
 
 

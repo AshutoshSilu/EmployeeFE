@@ -9,11 +9,11 @@
         <button class="menu-btn" (click)="toggleMenu()">
           <span class="menu-text">Menu</span>
         </button>
-        @if (showMenuDropdown) {
+        @if (showMenuDropdown()) {
         <app-menu></app-menu>
         }
       </div>
-      <nav class="nav-links" [class.active]="isMenuOpen">
+      <nav class="nav-links" [class.active]="isMenuOpen()">
         <a href="#" class="nav-link">
           <span class="nav-icon">🎯</span>
           Our Vision
@@ -22,7 +22,7 @@
           <span class="nav-icon">👥</span>
           Join our community
         </a>
-        <a href="#" class="nav-link" (click)="navigateToEmployee()">
+        <a href="#" class="nav-link" (click)="navigateToEmployeePortal($event)">
           <span class="nav-icon">💼</span>
           Employee Portal
         </a>
@@ -38,11 +38,29 @@
         <span class="btn-icon">📝</span>
         Registration
       </button>
+      @if (!isLoggedIn()) {
       <button class="auth-btn login-btn" (click)="navigateToLogin()">
         <span class="btn-icon">🔐</span>
         Login
       </button>
+      }
+      @if (isLoggedIn()) {
+      <button class="auth-btn logout-btn" (click)="logout()">
+        <span class="btn-icon">🚪</span>
+        Logout
+      </button>
+      }
     </div>
   </div>
   <div class="header-glow"></div>
 </header>
+
+<!-- Login Popup -->
+@if (showLoginPopup()) {
+<div class="login-overlay">
+  <div class="modal-backdrop" (click)="closeLoginPopup()"></div>
+  <div class="login-popup-wrapper">
+    <app-login-popup (closeLogin)="closeLoginPopup()"></app-login-popup>
+  </div>
+</div>
+}

@@ -1,23 +1,14 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { EmployeeService } from '../../services/employee';
+import { EmployeeService, Employee } from '../../services/employee';
 import { HeaderComponent } from '../../shared/header';
-import { RegistrationComponent } from '../registration/registration';
-import { FooterComponent } from "../../shared";
 
-interface Employee {
-  employeeId: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  department: string;
-  image?: string;
-}
+import { RegistrationComponent } from '../registration/registration';
 
 @Component({
   selector: 'app-employee',
-  imports: [ReactiveFormsModule, RegistrationComponent, HeaderComponent],
+  imports: [ReactiveFormsModule, RegistrationComponent],
   templateUrl: './employee.html',
   styleUrls: ['./employee.scss', './employee-theme.scss'],
 })
@@ -31,39 +22,42 @@ export class EmployeeComponent implements OnInit {
   showDetailsModal = signal(false);
   editingEmployee = signal<Employee | null>(null);
   selectedEmployee = signal<Employee | null>(null);
-  selectedImageUrl: string | null = null;
-  selectedImageFile: File | null = null;
-  editSelectedImageUrl: string | null = null;
-  editSelectedImageFile: File | null = null;
+  selectedImageUrl = signal<string | null>(null);
+  selectedImageFile = signal<File | null>(null);
+  editSelectedImageUrl = signal<string | null>(null);
+  editSelectedImageFile = signal<File | null>(null);
 
-  addEmployeeForm: FormGroup = this.fb.group({
-    firstName: ['', [Validators.required, Validators.minLength(2)]],
-    lastName: ['', [Validators.required, Validators.minLength(2)]],
-    email: ['', [Validators.required, Validators.email]],
-    department: ['', Validators.required]
-  });
+  private createEmployeeFormGroup(): FormGroup {
+    return this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      department: ['', Validators.required]
+    });
+  }
 
-  editEmployeeForm: FormGroup = this.fb.group({
-    firstName: ['', [Validators.required, Validators.minLength(2)]],
-    lastName: ['', [Validators.required, Validators.minLength(2)]],
-    email: ['', [Validators.required, Validators.email]],
-    department: ['', Validators.required]
-  });
+  addEmployeeForm: FormGroup = this.createEmployeeFormGroup();
+  editEmployeeForm: FormGroup = this.createEmployeeFormGroup();
 
-  employees = signal<Employee[]>([]);
+  employees = computed(() => this.employeeService.employees());
+  loading = computed(() => this.employeeService.loading());
+  error = computed(() => this.employeeService.error());
 
   currentUser = signal<Employee | null>(null);
+  
+  departmentCount = computed(() => 
+    new Set(this.employees().map(emp => emp.department)).size
+  );
+  
+  recentCount = computed(() => this.employees().length);
 
   ngOnInit() {
     this.loadEmployees();
-    this.getTmagedetails();
+    this.getImageDetails();
   }
 
   loadEmployees() {
     this.employeeService.getAllEmployees().subscribe({
-      next: (employees) => {
-        this.employees.set(employees);
-      },
       error: (error) => {
         console.error('Error loading employees:', error);
       }
@@ -74,14 +68,6 @@ export class EmployeeComponent implements OnInit {
     this.activeTab.set(tab);
   }
 
-  getDepartmentCount(): number {
-    return new Set(this.employees().map(emp => emp.department)).size;
-  }
-
-  getRecentCount(): number {
-    return this.employees().length;
-  }
-
   addEmployee() {
     this.showAddModal.set(true);
   }
@@ -89,23 +75,23 @@ export class EmployeeComponent implements OnInit {
   closeModal() {
     this.showAddModal.set(false);
     this.addEmployeeForm.reset();
-    this.selectedImageUrl = null;
-    this.selectedImageFile = null;
+    this.selectedImageUrl.set(null);
+    this.selectedImageFile.set(null);
   }
 
   onImageSelect(event: Event) {
     const target = event.target as HTMLInputElement;
     const file = target?.files?.[0];
     if (file && file.type.startsWith('image/')) {
-      this.selectedImageFile = file;
+      this.selectedImageFile.set(file);
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.selectedImageUrl = e.target?.result as string;
+        this.selectedImageUrl.set(e.target?.result as string);
       };
       reader.onerror = () => {
         console.error('Error reading file');
-        this.selectedImageUrl = null;
-        this.selectedImageFile = null;
+        this.selectedImageUrl.set(null);
+        this.selectedImageFile.set(null);
       };
       reader.readAsDataURL(file);
     } else {
@@ -117,23 +103,23 @@ export class EmployeeComponent implements OnInit {
     this.showEditModal.set(false);
     this.editEmployeeForm.reset();
     this.editingEmployee.set(null);
-    this.editSelectedImageUrl = null;
-    this.editSelectedImageFile = null;
+    this.editSelectedImageUrl.set(null);
+    this.editSelectedImageFile.set(null);
   }
 
   onEditImageSelect(event: Event) {
     const target = event.target as HTMLInputElement;
     const file = target?.files?.[0];
     if (file && file.type.startsWith('image/')) {
-      this.editSelectedImageFile = file;
+      this.editSelectedImageFile.set(file);
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.editSelectedImageUrl = e.target?.result as string;
+        this.editSelectedImageUrl.set(e.target?.result as string);
       };
       reader.onerror = () => {
         console.error('Error reading file');
-        this.editSelectedImageUrl = null;
-        this.editSelectedImageFile = null;
+        this.editSelectedImageUrl.set(null);
+        this.editSelectedImageFile.set(null);
       };
       reader.readAsDataURL(file);
     } else {
@@ -143,7 +129,7 @@ export class EmployeeComponent implements OnInit {
 
   viewEmployeeDetails(employee: Employee) {
     this.selectedEmployee.set(employee);
-    this.getTmagedetails();
+    this.getImageDetails();
     this.showDetailsModal.set(true);
   }
 
@@ -157,8 +143,7 @@ export class EmployeeComponent implements OnInit {
       const employeeData = this.addEmployeeForm.value;
 
       this.employeeService.registerEmployee(employeeData).subscribe({
-        next: (employee) => {
-          this.employees.set([...this.employees(), employee]);
+        next: () => {
           this.closeModal();
         },
         error: (error: any) => {
@@ -182,28 +167,54 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSubmitEditEmployee() {
-    if (this.editEmployeeForm.valid && this.editingEmployee()) {
-      const employeeId = this.editingEmployee()!.employeeId;
-      const updatedData = this.editEmployeeForm.value;
-
-      this.updateEmployeeLocally(employeeId, updatedData);
-      this.closeEditModal();
-    } else {
+    if (!this.editEmployeeForm.valid) {
       this.markFormGroupTouched(this.editEmployeeForm);
+      return;
     }
+
+    const editing = this.editingEmployee();
+    if (!editing) {
+      console.error('No employee selected for editing.');
+      alert('No employee selected to update. Please select an employee and try again.');
+      return;
+    }
+
+    const employeeId = editing.employeeId;
+    const updatedData = this.editEmployeeForm.value;
+
+    this.employeeService.updateEmployee(employeeId, updatedData).subscribe({
+      next: () => {
+        this.closeEditModal();
+      },
+      error: (error) => {
+        console.error('Error updating employee:', error);
+        alert('Failed to update employee. Please try again later.');
+      }
+    });
   }
 
-  deleteEmployee(employeeId: number) {
+  private getEmployeeFullName(employeeId: number): string {
     const employee = this.employees().find(emp => emp.employeeId === employeeId);
-    const employeeName = employee ? `${employee.firstName} ${employee.lastName}` : 'this employee';
+    return employee ? `${employee.firstName} ${employee.lastName}` : 'this employee';
+  }
 
-    if (confirm(`Are you sure you want to delete ${employeeName}?`)) {
-      const updatedEmployees = this.employees().filter(emp => emp.employeeId !== employeeId);
-      this.employees.set(updatedEmployees);
-
-      if (this.currentUser()?.employeeId === employeeId) {
-        this.currentUser.set(updatedEmployees.length > 0 ? updatedEmployees[0] : null);
+  private handleEmployeeDeletion(employeeId: number): void {
+    this.employeeService.deleteEmployee(employeeId).subscribe({
+      next: () => {
+        if (this.currentUser()?.employeeId === employeeId) {
+          this.currentUser.set(this.employees().length > 0 ? this.employees()[0] : null);
+        }
+      },
+      error: (error) => {
+        console.error('Error deleting employee:', error);
       }
+    });
+  }
+
+  deleteEmployee(employeeId: number): void {
+    const employeeName = this.getEmployeeFullName(employeeId);
+    if (confirm(`Are you sure you want to delete ${employeeName}?`)) {
+      this.handleEmployeeDeletion(employeeId);
     }
   }
 
@@ -215,28 +226,38 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  private updateEmployeeLocally(employeeId: number, updatedData: any): void {
-    const currentEmployees = this.employees();
-    const index = currentEmployees.findIndex(emp => emp.employeeId === employeeId);
-    if (index !== -1) {
-      currentEmployees[index] = { ...currentEmployees[index], ...updatedData };
-      this.employees.set([...currentEmployees]);
-    }
-  }
 
-  getTmagedetails() {
+
+  getImageDetails() {
     if (this.selectedEmployee()?.employeeId) {
-      this.selectedImageUrl = `assets/UserImage/${this.selectedEmployee()?.employeeId}.png`;
+      this.selectedImageUrl.set(`assets/UserImage/${this.selectedEmployee()?.employeeId}.png`);
     }
   }
 
   closePortal() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
   generatePDF() {
     const employee = this.selectedEmployee();
     if (!employee) return;
+
+    // Sanitize employee data to prevent XSS
+    const sanitize = (str: string) => str.replace(/[<>"'&]/g, (match) => {
+      const map: { [key: string]: string } = {
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '&': '&amp;'
+      };
+      return map[match];
+    });
+
+    const firstName = sanitize(employee.firstName);
+    const lastName = sanitize(employee.lastName);
+    const department = sanitize(employee.department);
+    const employeeId = String(employee.employeeId).replace(/[^0-9]/g, '');
 
     const printContent = `
       <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #f0f0f0; padding: 20px;">
@@ -249,24 +270,30 @@ export class EmployeeComponent implements OnInit {
           <div style="padding: 15px 20px; display: flex; gap: 15px; align-items: center;">
             <div style="width: 70px; height: 70px; border-radius: 10px; border: 2px solid #00d4ff; overflow: hidden; flex-shrink: 0; background: rgba(255,255,255,0.1);">
               <div style="width: 100%; height: 100%; background: #00d4ff; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">
-                ${employee.firstName.charAt(0)}${employee.lastName.charAt(0)}
+                ${firstName.charAt(0)}${lastName.charAt(0)}
               </div>
             </div>
             <div style="flex: 1; color: white;">
-              <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">${employee.firstName} ${employee.lastName}</div>
-              <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-bottom: 3px;">ID: ${employee.employeeId}</div>
-              <div style="font-size: 11px; color: rgba(255,255,255,0.7);">${employee.department}</div>
+              <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">${firstName} ${lastName}</div>
+              <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-bottom: 3px;">ID: ${employeeId}</div>
+              <div style="font-size: 11px; color: rgba(255,255,255,0.7);">${department}</div>
             </div>
           </div>
         </div>
       </div>
     `;
     
-    const printWindow = window.open('', '_blank');
-    if (printWindow) {
+    try {
+      const printWindow = window.open('', '_blank');
+      if (!printWindow) {
+        throw new Error('Failed to open print window. Please check if pop-ups are blocked.');
+      }
       printWindow.document.write(printContent);
       printWindow.document.close();
       printWindow.print();
+    } catch (error) {
+      console.error('Error while printing:', error);
+      alert('Failed to generate PDF. Please check if pop-ups are allowed and try again.');
     }
   }
 }

@@ -1,26 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\CRUDDB\\EmployeeBE\\",
+  "WorkspaceRootPath": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeebe\\employee\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeefe\\employeefe\\employeebe\\employee\\model\\employeedetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\model\\employeedetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeebe\\employee\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeefe\\employeefe\\employeebe\\employee\\model\\authorization\\usermodeldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\model\\authorization\\usermodeldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeefe\\employeefe\\employeebe\\employee\\model\\authorization\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\model\\authorization\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeefe\\employeefe\\employeebe\\employee\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeebe\\employee\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeebe\\employee\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeefe\\employeefe\\employeebe\\employee\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeebe\\employee\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeefe\\employeefe\\employeebe\\employee\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\repositories\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|d:\\cruddb\\employeefe\\employeefe\\employeebe\\employee\\repositories\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5466FF0-E1A9-4EB7-ABD8-787D4D55E927}|Employee\\Employee.csproj|solutionrelative:employee\\repositories\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,68 +38,98 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "D:\\CRUDDB\\EmployeeBE\\Employee\\Repositories\\IRepository.cs",
-              "RelativeDocumentMoniker": "Employee\\Repositories\\IRepository.cs",
-              "ToolTip": "D:\\CRUDDB\\EmployeeBE\\Employee\\Repositories\\IRepository.cs",
-              "RelativeToolTip": "Employee\\Repositories\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UserModelDto.cs",
+              "DocumentMoniker": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Model\\Authorization\\UserModelDto.cs",
+              "RelativeDocumentMoniker": "Employee\\Model\\Authorization\\UserModelDto.cs",
+              "ToolTip": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Model\\Authorization\\UserModelDto.cs",
+              "RelativeToolTip": "Employee\\Model\\Authorization\\UserModelDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T10:51:14.51Z",
+              "WhenOpened": "2025-11-10T15:01:43.309Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\CRUDDB\\EmployeeBE\\Employee\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Employee\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\CRUDDB\\EmployeeBE\\Employee\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Employee\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA9AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "EmployeeDetailsDto.cs",
+              "DocumentMoniker": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Model\\EmployeeDetailsDto.cs",
+              "RelativeDocumentMoniker": "Employee\\Model\\EmployeeDetailsDto.cs",
+              "ToolTip": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Model\\EmployeeDetailsDto.cs",
+              "RelativeToolTip": "Employee\\Model\\EmployeeDetailsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T09:24:05.383Z"
+              "WhenOpened": "2025-11-10T15:01:35.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IEmployeeRepository.cs",
+              "DocumentMoniker": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Repositories\\IEmployeeRepository.cs",
+              "RelativeDocumentMoniker": "Employee\\Repositories\\IEmployeeRepository.cs",
+              "ToolTip": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Repositories\\IEmployeeRepository.cs",
+              "RelativeToolTip": "Employee\\Repositories\\IEmployeeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T14:53:59.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Repositories\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "Employee\\Repositories\\EmployeeRepository.cs",
+              "ToolTip": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Repositories\\EmployeeRepository.cs",
+              "RelativeToolTip": "Employee\\Repositories\\EmployeeRepository.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAWwDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T14:40:55.22Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "D:\\CRUDDB\\EmployeeBE\\Employee\\Services\\TokenService.cs",
-              "RelativeDocumentMoniker": "Employee\\Services\\TokenService.cs",
-              "ToolTip": "D:\\CRUDDB\\EmployeeBE\\Employee\\Services\\TokenService.cs",
-              "RelativeToolTip": "Employee\\Services\\TokenService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Model\\Authorization\\UserModel.cs",
+              "RelativeDocumentMoniker": "Employee\\Model\\Authorization\\UserModel.cs",
+              "ToolTip": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Model\\Authorization\\UserModel.cs",
+              "RelativeToolTip": "Employee\\Model\\Authorization\\UserModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T09:23:58.589Z"
+              "WhenOpened": "2025-11-10T14:39:53.601Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "EmployeeService.cs",
-              "DocumentMoniker": "D:\\CRUDDB\\EmployeeBE\\Employee\\Services\\EmployeeService.cs",
-              "RelativeDocumentMoniker": "Employee\\Services\\EmployeeService.cs",
-              "ToolTip": "D:\\CRUDDB\\EmployeeBE\\Employee\\Services\\EmployeeService.cs",
-              "RelativeToolTip": "Employee\\Services\\EmployeeService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Employee\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Employee\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAuwA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T09:23:53.928Z"
+              "WhenOpened": "2025-11-09T09:24:05.383Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\CRUDDB\\EmployeeBE\\Employee\\Program.cs",
-              "RelativeDocumentMoniker": "Employee\\Program.cs",
-              "ToolTip": "D:\\CRUDDB\\EmployeeBE\\Employee\\Program.cs",
-              "RelativeToolTip": "Employee\\Program.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAvwD4AAAAXAAAAAAAAAA==",
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "Employee\\Services\\EmployeeService.cs",
+              "ToolTip": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "Employee\\Services\\EmployeeService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwC4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-09T09:19:34.88Z"
+              "WhenOpened": "2025-11-09T09:23:53.928Z",
+              "EditorCaption": ""
             }
           ]
         }

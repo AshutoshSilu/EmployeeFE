@@ -1,7 +1,7 @@
-import { Component, signal, OnInit, inject } from '@angular/core';
+import { Component, signal, OnInit, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { MenuService } from '../../services/menu';
 
 interface MenuItem {
   id: number;
@@ -18,11 +18,15 @@ interface MenuItem {
   styleUrls: ['./menu.scss']
 })
 export class MenuComponent implements OnInit {
-  private http = inject(HttpClient);
+  private menuService = inject(MenuService);
   private fb = inject(FormBuilder);
   
   menuItems = signal<MenuItem[]>([]);
   showAddForm = signal(false);
+  
+  menus = computed(() => this.menuService.menus());
+  loading = computed(() => this.menuService.loading());
+  error = computed(() => this.menuService.error());
   
   addMenuForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
@@ -32,10 +36,11 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.loadMenuItems();
+    this.menuService.getAllMenus().subscribe();
   }
 
   loadMenuItems() {
-    // Mock data - replace with actual API call
+    // Mock data for local menu items
     const mockItems: MenuItem[] = [
       { id: 1, name: 'Dashboard', url: '/dashboard', icon: '📊' },
       { id: 2, name: 'Employees', url: '/employee', icon: '👥' },
@@ -45,7 +50,7 @@ export class MenuComponent implements OnInit {
   }
 
   toggleAddForm() {
-    this.showAddForm.set(!this.showAddForm());
+    this.showAddForm.update(show => !show);
   }
 
   addMenuItem() {
@@ -55,13 +60,13 @@ export class MenuComponent implements OnInit {
         ...this.addMenuForm.value
       };
       
-      this.menuItems.set([...this.menuItems(), newItem]);
+      this.menuItems.update(items => [...items, newItem]);
       this.addMenuForm.reset();
       this.showAddForm.set(false);
     }
   }
 
   deleteMenuItem(id: number) {
-    this.menuItems.set(this.menuItems().filter(item => item.id !== id));
+    this.menuItems.update(items => items.filter(item => item.id !== id));
   }
 }

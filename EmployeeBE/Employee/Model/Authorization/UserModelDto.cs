@@ -1,6 +1,6 @@
 namespace Employee.Model.Authorization
 {
-  public class UserModel
+  public class UserModelDto
   {
     public string Username { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;

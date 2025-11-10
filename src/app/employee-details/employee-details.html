@@ -1,6 +1,6 @@
 <div class="employee-details" *ngIf="employee">
   <div class="employee-image" *ngIf="employee.image">
-    <img [src]="selectctedImage" alt="{{employee.firstName}} {{employee.lastName}}">
+    <img [src]="selectedImage()" alt="{{employee.firstName}} {{employee.lastName}}">
   </div>
   <div class="employee-info">
     <h2>{{employee.firstName}} {{employee.lastName}}</h2>

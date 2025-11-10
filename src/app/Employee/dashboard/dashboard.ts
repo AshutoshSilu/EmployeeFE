@@ -1,39 +1,28 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../shared/header';
 import { FooterComponent } from '../../shared/footer';
 
-
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [HeaderComponent, FooterComponent],
   templateUrl: './dashboard.html',
-  styleUrl: './dashboard.scss'
+  styleUrls: ['./dashboard.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   private router = inject(Router);
-  private auth = inject(AuthService);
-  
-  user: any = {};
+  private authService = inject(AuthService);
 
-  ngOnInit() {
-    this.loadUserProfile();
-  }
-
-  loadUserProfile() {
-    this.user = this.auth.getCurrentUser() || {
-      name: 'John Doe',
-      email: 'john.doe@company.com',
-      department: 'IT',
-      position: 'Software Developer',
-      joinDate: '2023-01-15'
-    };
-  }
+  currentUser = computed(() => this.authService.currentUser());
+  isLoggedIn = computed(() => this.authService.isLoggedIn());
 
   logout() {
-    this.auth.logout();
-    this.router.navigate(['/']);
+    this.authService.logout();
+    this.router.navigate(['/'], { replaceUrl: true });
+  }
+
+  navigateToEmployee() {
+    this.router.navigate(['/employee']);
   }
 }

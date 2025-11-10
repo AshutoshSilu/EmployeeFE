@@ -7843,11 +7843,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CRUDDB\\EmployeeBE\\Employee\\Employee.csproj",
+      "projectUniqueName": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Employee.csproj",
       "projectName": "Employee",
-      "projectPath": "D:\\CRUDDB\\EmployeeBE\\Employee\\Employee.csproj",
+      "projectPath": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\Employee.csproj",
       "packagesPath": "C:\\Users\\ashut\\.nuget\\packages\\",
-      "outputPath": "D:\\CRUDDB\\EmployeeBE\\Employee\\obj\\",
+      "outputPath": "D:\\CRUDDB\\EmployeeFE\\EmployeeFE\\EmployeeBE\\Employee\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

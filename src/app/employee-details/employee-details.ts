@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Employee } from '../models/employee.model';
 
@@ -10,11 +10,18 @@ import { Employee } from '../models/employee.model';
 })
 export class EmployeeDetails implements OnInit {
   @Input() employee: Employee | null = null;
-  selectctedImage: string = '';
+  
+  selectedImage = signal('');
+  
+  employeeImage = computed(() => {
+    return this.employee?.employeeId 
+      ? `assets/UserImage/${this.employee.employeeId}.png`
+      : '';
+  });
 
   ngOnInit(): void {
     if(this.employee?.employeeId){
-      this.selectctedImage = `assets/UserImage/${this.employee.employeeId}.png`;
+      this.selectedImage.set(`assets/UserImage/${this.employee.employeeId}.png`);
     }
   }
 }

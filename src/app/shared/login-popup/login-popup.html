@@ -1,0 +1,33 @@
+<div class="login-popup">
+  <div class="login-container">
+    <div class="login-header">
+      <h3>🔐 Login</h3>
+      <button type="button" class="close-btn" (click)="close()">×</button>
+    </div>
+    <form (ngSubmit)="login()" (click)="$event.stopPropagation()">
+      <div class="login-body">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" [(ngModel)]="username" name="username" class="form-control" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Enter password">
+        </div>
+        @if (error()) {
+        <div class="error-message">{{ error() }}</div>
+        }
+      </div>
+      <div class="login-footer">
+        <button type="button" class="btn-cancel" (click)="close()">Cancel</button>
+        <button type="submit" class="btn-login" [disabled]="isLoading()">
+          @if (isLoading()) {
+          <span>Logging in...</span>
+          } @else {
+          <span>Login</span>
+          }
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

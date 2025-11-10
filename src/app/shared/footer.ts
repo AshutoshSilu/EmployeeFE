@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,5 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./footer.scss']
 })
 export class FooterComponent {
-  currentYear = new Date().getFullYear();
+  currentYear = computed(() => new Date().getFullYear());
+  companyName = signal('The Caffeine Capper');
+  version = signal('1.0.0');
 }
