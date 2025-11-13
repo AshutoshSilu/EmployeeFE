@@ -37,7 +37,7 @@ main {
 .form-control {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(139, 195, 74, 0.3);
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -46,8 +46,8 @@ main {
 
 .form-control:focus {
   outline: none;
-  border-color: #00d4ff;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  border-color: #66bb6a;
+  box-shadow: 0 0 10px rgba(104, 159, 56, 0.3);
 }
 
 .btn {
@@ -63,41 +63,49 @@ main {
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, #1a1a2e, #16213e);
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
   color: white;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(139, 195, 74, 0.3);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(45deg, #16213e, #0f3460);
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+  background: linear-gradient(45deg, #388e3c, #4caf50);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background: linear-gradient(45deg, #0f3460, #533483);
+  background: linear-gradient(45deg, #8bc34a, #9ccc65);
   color: white;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(104, 159, 56, 0.3);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn-secondary:hover {
-  background: linear-gradient(45deg, #533483, #0f3460);
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+  background: linear-gradient(45deg, #689f38, #8bc34a);
+  box-shadow: 0 4px 15px rgba(139, 195, 74, 0.4);
+  transform: translateY(-2px);
 }
 
 /* Card styles */
 .card {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(139, 195, 74, 0.2);
   overflow: hidden;
 }
 
 .card-header {
   padding: 1.5rem;
-  background: linear-gradient(45deg, #1a1a2e, #16213e);
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
   color: white;
-  border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+  border-bottom: 2px solid rgba(139, 195, 74, 0.3);
 }
 
 .card-body {
@@ -192,10 +200,10 @@ main {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #00d4ff, #5b86e5);
+  background: linear-gradient(45deg, #66bb6a, #8bc34a);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #5b86e5, #36d1dc);
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
 }

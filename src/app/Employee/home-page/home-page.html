@@ -1,9 +1,82 @@
 <app-header></app-header>
 <div class="home-container">
   <div class="hero-section">
-    <h1 class="main-title">The Caffeine Capper</h1>
-    <p class="subtitle">Your Ultimate Coffee Experience</p>
-    <div class="coffee-icon">☕</div>
+    <div class="hero-content">
+      <h1 class="main-title">Mom’s Magic</h1>
+      <p class="subtitle">Every Bite, a Mother’s Touch.</p>
+      <div class="hero-icons">
+        <span class="food-icon">🍽️</span>
+        <span class="delivery-icon">🚚</span>
+        <span class="chef-icon">👨‍🍳</span>
+      </div>
+      <div class="cta-buttons">
+        <button class="btn btn-primary order-now-btn" (click)="navigateToOrderNow()">
+          <span class="btn-text">Order Now</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="features-section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Mom's Kitchen?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🥘</div>
+          <h3>Fresh Ingredients</h3>
+          <p>Premium quality ingredients sourced daily</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Fast Delivery</h3>
+          <p>Quick preparation and lightning-fast delivery</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Expert Team</h3>
+          <p>Professional chefs and dedicated staff</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <h3>Address</h3>
+            <p>354/4, Berhampur<br>Ganjam, 760001</p>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <h3>Phone</h3>
+            <p>+91 993798895</p>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <h3>Email</h3>
+            <p>info@momsmagic.com</p>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <app-footer></app-footer>

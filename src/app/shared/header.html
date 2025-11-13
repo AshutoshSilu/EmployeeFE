@@ -2,33 +2,28 @@
   <div class="header-container">
     <div class="header-left">
       <div class="logo">
-        <span class="logo-icon">☕</span>
-        <span class="logo-text">Caffeine Capper</span>
-      </div>
-      <div class="menu-container">
-        <button class="menu-btn" (click)="toggleMenu()">
-          <span class="menu-text">Menu</span>
-        </button>
-        @if (showMenuDropdown()) {
-        <app-menu></app-menu>
-        }
+        <span class="logo-icon">🍽️</span>
+        <span class="logo-text">Mom’s Magic</span>
       </div>
       <nav class="nav-links" [class.active]="isMenuOpen()">
         <a href="#" class="nav-link">
-          <span class="nav-icon">🎯</span>
-          Our Vision
+          <span (click)="toggleMenu()" class="nav-icon">🍽️</span>
+          Menu
+          @if (showMenuDropdown()) {
+        <app-menu></app-menu>
+        }
         </a>
-        <a href="#" class="nav-link">
-          <span class="nav-icon">👥</span>
-          Join our community
+        <a href="#" class="nav-link" (click)="scrollToContact($event)">
+          <span class="nav-icon">📞</span>
+          Contact Us
+        </a>
+        <a href="#" class="nav-link" (click)="navigateToOrderNow($event)">
+          <span class="nav-icon">🛒</span>
+          Order Now
         </a>
         <a href="#" class="nav-link" (click)="navigateToEmployeePortal($event)">
           <span class="nav-icon">💼</span>
           Employee Portal
-        </a>
-        <a href="#" class="nav-link">
-          <span class="nav-icon">📞</span>
-          Contact Us
         </a>
       </nav>
     </div>

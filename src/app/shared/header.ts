@@ -71,4 +71,17 @@ home() {
       this.router.navigate(['/employee']);
     }
   }
+
+  scrollToContact(event: Event) {
+    event.preventDefault();
+    const contactSection = document.querySelector('.contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  navigateToOrderNow(event: Event) {
+    event.preventDefault();
+    this.router.navigate(['/order-now']);
+  }
 }

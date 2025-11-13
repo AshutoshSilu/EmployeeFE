@@ -1,0 +1,72 @@
+<app-header></app-header>
+<div class="order-container">
+  <div class="order-header">
+    <h1>Order Now</h1>
+    <p>Delicious meals made with love</p>
+  </div>
+  
+  <div class="order-content">
+    <div class="menu-section">
+      <h2>Our Menu</h2>
+      <div class="menu-grid">
+        @for (dish of dishes; track dish.id) {
+        <div class="dish-card">
+          <img [src]="dish.image" [alt]="dish.name" class="dish-image">
+          <div class="dish-info">
+            <h3>{{ dish.name }}</h3>
+            <p class="dish-description">{{ dish.description }}</p>
+            <div class="dish-footer">
+              <span class="dish-price">₹{{ dish.price }}</span>
+              <button class="btn btn-primary add-btn" (click)="addToCart(dish)">Add</button>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    
+    <div class="cart-section">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <span class="cart-count">{{ cartItems().length }} items</span>
+      </div>
+      <div class="cart-items">
+        @if (cartItems().length === 0) {
+        <p class="empty-cart">Your cart is empty</p>
+        } @else {
+        @for (item of cartItems(); track item.id) {
+        <div class="cart-item">
+          <img [src]="item.image" [alt]="item.name" class="cart-item-image">
+          <div class="cart-item-info">
+            <h4>{{ item.name }}</h4>
+            <div class="cart-item-controls">
+              <button class="quantity-btn" (click)="decreaseQuantity(item.id)">-</button>
+              <span class="quantity">{{ item.quantity }}</span>
+              <button class="quantity-btn" (click)="increaseQuantity(item.id)">+</button>
+            </div>
+            <span class="item-total">₹{{ item.price * item.quantity }}</span>
+          </div>
+        </div>
+        }
+        }
+      </div>
+      @if (cartItems().length > 0) {
+      <div class="cart-total">
+        <h3>Total: ₹{{ getCartTotal() }}</h3>
+        <button class="btn btn-primary checkout-btn">Checkout</button>
+      </div>
+      }
+    </div>
+  </div>
+  
+  <!-- Floating Checkout Overlay -->
+  @if (cartItems().length > 0) {
+  <div class="floating-checkout">
+    <div class="checkout-info">
+      <span class="cart-summary">{{ cartItems().length }} items • ₹{{ getCartTotal() }}</span>
+    </div>
+    <button class="btn btn-primary checkout-btn-float" (click)="proceedToCheckout()">Checkout</button>
+  </div>
+  }
+</div>
+<app-footer></app-footer>

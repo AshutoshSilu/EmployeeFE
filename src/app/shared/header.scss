@@ -1,6 +1,6 @@
 .header {
-  background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #533483);
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+  background: linear-gradient(45deg, #4caf50, #66bb6a, #8bc34a, #9ccc65);
+  box-shadow: 0 8px 32px rgba(76, 175, 80, 0.2);
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@
   z-index: 10000;
   backdrop-filter: blur(15px);
   overflow: visible;
-  border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+  border-bottom: 2px solid rgba(139, 195, 74, 0.3);
 }
 
 .header-glow {
@@ -17,7 +17,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #00d4ff, #5b86e5, #36d1dc, transparent);
+  background: linear-gradient(90deg, transparent, #8bc34a, #66bb6a, #4caf50, transparent);
 }
 
 .header-container {
@@ -45,15 +45,15 @@
   
   .logo-icon {
     font-size: 1.5rem;
-    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
   }
   
   .logo-text {
-    background: linear-gradient(45deg, #00d4ff, #5b86e5, #36d1dc);
+    background: linear-gradient(45deg, #fff, #e8f5e8, #f1f8e9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -152,7 +152,7 @@
   align-items: center;
   gap: 0.3rem;
   padding: 0.5rem 1rem;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(139, 195, 74, 0.3);
   border-radius: 20px;
   font-weight: 600;
   cursor: pointer;
@@ -166,8 +166,8 @@
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
-    border-color: #00d4ff;
+    box-shadow: 0 4px 15px rgba(139, 195, 74, 0.4);
+    border-color: #8bc34a;
   }
   
   .btn-icon {
@@ -181,20 +181,20 @@
 }
 
 .registration-btn {
-  background: linear-gradient(45deg, #0f3460, #533483);
+  background: linear-gradient(45deg, #66bb6a, #8bc34a);
   color: white;
 
   &:hover {
-    background: linear-gradient(45deg, #533483, #0f3460);
+    background: linear-gradient(45deg, #8bc34a, #9ccc65);
   }
 }
 
 .login-btn {
-  background: linear-gradient(45deg, #1a1a2e, #16213e);
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
   color: white;
 
   &:hover {
-    background: linear-gradient(45deg, #16213e, #1a1a2e);
+    background: linear-gradient(45deg, #388e3c, #4caf50);
   }
 }
 
@@ -295,10 +295,10 @@
       top: 100%;
       left: 0;
       right: 0;
-      background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460, #533483);
+      background: linear-gradient(45deg, #4caf50, #66bb6a, #8bc34a, #9ccc65);
       flex-direction: column;
       padding: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+      box-shadow: 0 4px 20px rgba(76, 175, 80, 0.2);
       backdrop-filter: blur(15px);
     }
   }

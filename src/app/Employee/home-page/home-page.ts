@@ -36,4 +36,8 @@ export class HomePageComponent {
   closeLoginPopup() {
     this.showLoginPopup.set(false);
   }
+
+  navigateToOrderNow() {
+    this.router.navigate(['/order-now']);
+  }
 }
