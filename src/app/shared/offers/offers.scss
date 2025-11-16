@@ -1,0 +1,151 @@
+.offers-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.05), rgba(139, 195, 74, 0.05));
+  padding: 2rem 0;
+}
+
+.offers-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #4caf50;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+}
+
+.coupons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.coupon-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
+  border: 2px solid rgba(139, 195, 74, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.coupon-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(45deg, #4caf50, #66bb6a, #8bc34a);
+}
+
+.coupon-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.25);
+  border-color: rgba(139, 195, 74, 0.5);
+}
+
+.coupon-header {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.discount {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.coupon-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.coupon-body {
+  padding: 2rem;
+  text-align: center;
+  
+  h3 {
+    font-size: 1.5rem;
+    color: #4caf50;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+}
+
+.coupon-code {
+  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
+  border: 2px dashed #4caf50;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4caf50;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.copy-btn {
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.copy-btn:hover {
+  background: linear-gradient(45deg, #388e3c, #4caf50);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.copy-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .offers-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .coupons-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .coupon-body {
+    padding: 1.5rem;
+  }
+  
+  .discount {
+    font-size: 1.5rem;
+  }
+}

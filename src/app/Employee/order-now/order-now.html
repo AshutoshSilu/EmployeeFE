@@ -53,7 +53,7 @@
       @if (cartItems().length > 0) {
       <div class="cart-total">
         <h3>Total: ₹{{ getCartTotal() }}</h3>
-        <button class="btn btn-primary checkout-btn">Checkout</button>
+        <button class="btn btn-primary checkout-btn" (click)="proceedToCheckout()">Checkout</button>
       </div>
       }
     </div>

@@ -7,6 +7,7 @@ import { DashboardComponent } from './Employee/dashboard/dashboard';
 import { OrderNowComponent } from './Employee/order-now/order-now';
 import { CheckoutComponent } from './Employee/checkout/checkout';
 import { authGuard, loginGuard } from './guards/auth.guard';
+import { Offers } from './shared/offers/offers';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -16,5 +17,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'employee', component: EmployeeComponent, canActivate: [authGuard] },
   { path: 'employee-details/:id', component: EmployeeDetails, canActivate: [authGuard] },
-  { path: '**', redirectTo: '' }
+  { path: 'offers', component: Offers },
+  { path: '**', redirectTo: '' },
+
 ];

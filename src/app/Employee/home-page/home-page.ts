@@ -1,7 +1,7 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { Router } from '@angular/router';
-import { HeaderComponent } from '../../shared/header';
-import { FooterComponent } from '../../shared/footer';
+import { HeaderComponent } from '../../shared/header/header';
+import { FooterComponent } from '../../shared/footer/footer';
 import { AuthService } from '../../services/auth.service';
 
 @Component({

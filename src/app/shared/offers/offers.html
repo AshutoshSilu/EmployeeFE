@@ -1,0 +1,62 @@
+<app-header></app-header>
+<div class="offers-container">
+  <div class="offers-header">
+    <h1>🎉 Special Offers</h1>
+    <p>Save more with our exclusive deals!</p>
+  </div>
+  
+  <div class="coupons-grid">
+    <div class="coupon-card">
+      <div class="coupon-header">
+        <span class="discount">20% OFF</span>
+        <span class="coupon-icon">🍽️</span>
+      </div>
+      <div class="coupon-body">
+        <h3>First Order</h3>
+        <p>Get 20% off on your first order</p>
+        <div class="coupon-code">FIRST20</div>
+        <button class="copy-btn" (click)="copyCode('FIRST20')">Copy Code</button>
+      </div>
+    </div>
+    
+    <div class="coupon-card">
+      <div class="coupon-header">
+        <span class="discount">₹100 OFF</span>
+        <span class="coupon-icon">🚚</span>
+      </div>
+      <div class="coupon-body">
+        <h3>Free Delivery</h3>
+        <p>₹100 off + Free delivery on orders above ₹500</p>
+        <div class="coupon-code">FREEDEL100</div>
+        <button class="copy-btn" (click)="copyCode('FREEDEL100')">Copy Code</button>
+      </div>
+    </div>
+    
+    <div class="coupon-card">
+      <div class="coupon-header">
+        <span class="discount">30% OFF</span>
+        <span class="coupon-icon">👨🍳</span>
+      </div>
+      <div class="coupon-body">
+        <h3>Weekend Special</h3>
+        <p>30% off on weekend orders</p>
+        <div class="coupon-code">WEEKEND30</div>
+        <button class="copy-btn" (click)="copyCode('WEEKEND30')">Copy Code</button>
+      </div>
+    </div>
+    
+    <div class="coupon-card">
+      <div class="coupon-header">
+        <span class="discount">BUY 2 GET 1</span>
+        <span class="coupon-icon">🥘</span>
+      </div>
+      <div class="coupon-body">
+        <h3>Combo Deal</h3>
+        <p>Buy 2 main courses, get 1 free</p>
+        <div class="coupon-code">COMBO21</div>
+        <button class="copy-btn" (click)="copyCode('COMBO21')">Copy Code</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

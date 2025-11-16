@@ -9,9 +9,6 @@
         <a href="#" class="nav-link">
           <span (click)="toggleMenu()" class="nav-icon">🍽️</span>
           Menu
-          @if (showMenuDropdown()) {
-        <app-menu></app-menu>
-        }
         </a>
         <a href="#" class="nav-link" (click)="scrollToContact($event)">
           <span class="nav-icon">📞</span>
@@ -25,9 +22,13 @@
           <span class="nav-icon">💼</span>
           Employee Portal
         </a>
+        <a href="#" class="nav-link" (click)="navigateToOffers($event)">
+          <span class="nav-icon">🎉</span>
+          Offers
+        </a>
       </nav>
     </div>
-    
+
     <div class="header-right">
       <button class="auth-btn registration-btn" (click)="navigateToRegistration()">
         <span class="btn-icon">📝</span>

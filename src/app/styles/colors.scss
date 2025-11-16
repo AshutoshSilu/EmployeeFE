@@ -1,0 +1,51 @@
+/* Color Variables - Modern Blue & Purple Theme */
+:root {
+  /* Primary Colors */
+  --primary-vibrant-orange: #6366F1;
+  --secondary-deep-orange: #8B5CF6;
+  --accent-lime: #10B981;
+  --background-cream: #F8FAFC;
+  --text-dark-graphite: #1E293B;
+  
+  /* Primary Variations */
+  --primary-light: #A5B4FC;
+  --primary-dark: #4338CA;
+  --primary-hover: #5B21B6;
+  
+  /* Secondary Variations */
+  --secondary-light: #C4B5FD;
+  --secondary-dark: #7C3AED;
+  --secondary-hover: #A855F7;
+  
+  /* Accent Variations */
+  --accent-light: #6EE7B7;
+  --accent-dark: #059669;
+  --accent-hover: #047857;
+  
+  /* Background Variations */
+  --background-white: #FFFFFF;
+  --background-light: #F1F5F9;
+  --background-card: rgba(248, 250, 252, 0.95);
+  
+  /* Text Variations */
+  --text-light: #64748B;
+  --text-muted: #94A3B8;
+  --text-white: #FFFFFF;
+  
+  /* Status Colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #3B82F6;
+  
+  /* Shadow Colors */
+  --shadow-primary: rgba(99, 102, 241, 0.2);
+  --shadow-secondary: rgba(139, 92, 246, 0.2);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  
+  /* Border Colors */
+  --border-light: rgba(99, 102, 241, 0.2);
+  --border-medium: rgba(99, 102, 241, 0.3);
+  --border-dark: rgba(139, 92, 246, 0.4);
+}

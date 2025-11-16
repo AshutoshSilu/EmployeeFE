@@ -27,11 +27,12 @@
         <div class="form-group">
           <label for="location">Location</label>
           <div class="location-input">
-            <input type="text" id="location" class="form-control" placeholder="Enter location or use current location" required>
+            <input type="text" id="location" #locationInput class="form-control" placeholder="Search for a place" required>
             <button type="button" class="location-btn" (click)="getCurrentLocation()">
               📍 Use Current Location
             </button>
           </div>
+          <div id="map" class="map-container"></div>
         </div>
       </form>
     </div>
@@ -52,5 +53,14 @@
       <button class="btn btn-primary place-order-btn" (click)="placeOrder()">Place Order</button>
     </div>
   </div>
+  
+  @if (showPayment) {
+  <app-payment-gateway 
+    [orderTotal]="orderTotal" 
+    [orderData]="currentOrderData"
+    (paymentComplete)="onPaymentComplete($event)"
+    (paymentCancelled)="onPaymentCancelled()">
+  </app-payment-gateway>
+  }
 </div>
 <app-footer></app-footer>

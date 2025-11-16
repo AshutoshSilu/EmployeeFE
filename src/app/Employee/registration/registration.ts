@@ -59,6 +59,7 @@ export class RegistrationComponent {
           console.log('Employee registered successfully:', response);
           this.isSubmitting.set(false);
           this.closeRegistration.emit();
+          this.router.navigate(['/']);
         },
         error: (error) => {
           console.error('Registration failed:', error);
@@ -75,9 +76,11 @@ export class RegistrationComponent {
 
   goBack() {
     this.closeRegistration.emit();
+    this.router.navigate(['/']);
   }
   
   close() {
     this.closeRegistration.emit();
+    this.router.navigate(['/']);
   }
 }

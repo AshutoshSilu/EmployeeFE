@@ -1,6 +1,6 @@
 .header {
-  background: linear-gradient(45deg, #4caf50, #66bb6a, #8bc34a, #9ccc65);
-  box-shadow: 0 8px 32px rgba(76, 175, 80, 0.2);
+  background: linear-gradient(45deg, var(--primary-vibrant-orange), var(--secondary-deep-orange), var(--primary-light), var(--secondary-light));
+  box-shadow: 0 8px 32px var(--shadow-primary);
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@
   z-index: 10000;
   backdrop-filter: blur(15px);
   overflow: visible;
-  border-bottom: 2px solid rgba(139, 195, 74, 0.3);
+  border-bottom: 2px solid var(--border-medium);
 }
 
 .header-glow {
@@ -17,7 +17,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #8bc34a, #66bb6a, #4caf50, transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-lime), var(--primary-light), var(--primary-vibrant-orange), transparent);
 }
 
 .header-container {
@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: white;
+  color: var(--text-white);
   font-weight: 700;
   font-size: 1.1rem;
   
@@ -49,7 +49,7 @@
   }
   
   .logo-text {
-    background: linear-gradient(45deg, #fff, #e8f5e8, #f1f8e9);
+    background: linear-gradient(45deg, var(--text-white), var(--background-cream), var(--accent-lime));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -101,7 +101,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: white;
+  color: var(--text-white);
   text-decoration: none;
   font-weight: 600;
   padding: 0.8rem 1.2rem;
@@ -124,7 +124,7 @@
   &:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--shadow-light);
     
     &::before {
       left: 100%;
@@ -152,7 +152,7 @@
   align-items: center;
   gap: 0.3rem;
   padding: 0.5rem 1rem;
-  border: 1px solid rgba(139, 195, 74, 0.3);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   font-weight: 600;
   cursor: pointer;
@@ -161,13 +161,13 @@
   letter-spacing: 0.3px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--shadow-light);
   white-space: nowrap;
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(139, 195, 74, 0.4);
-    border-color: #8bc34a;
+    box-shadow: 0 4px 15px var(--shadow-primary);
+    border-color: var(--primary-vibrant-orange);
   }
   
   .btn-icon {
@@ -181,20 +181,20 @@
 }
 
 .registration-btn {
-  background: linear-gradient(45deg, #66bb6a, #8bc34a);
-  color: white;
+  background: linear-gradient(45deg, var(--secondary-deep-orange), var(--secondary-light));
+  color: var(--text-white);
 
   &:hover {
-    background: linear-gradient(45deg, #8bc34a, #9ccc65);
+    background: linear-gradient(45deg, var(--secondary-dark), var(--secondary-deep-orange));
   }
 }
 
 .login-btn {
-  background: linear-gradient(45deg, #4caf50, #66bb6a);
-  color: white;
+  background: linear-gradient(45deg, var(--primary-vibrant-orange), var(--primary-light));
+  color: var(--text-white);
 
   &:hover {
-    background: linear-gradient(45deg, #388e3c, #4caf50);
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary-vibrant-orange));
   }
 }
 
@@ -295,10 +295,10 @@
       top: 100%;
       left: 0;
       right: 0;
-      background: linear-gradient(45deg, #4caf50, #66bb6a, #8bc34a, #9ccc65);
+      background: linear-gradient(45deg, var(--primary-vibrant-orange), var(--secondary-deep-orange), var(--primary-light), var(--secondary-light));
       flex-direction: column;
       padding: 1rem;
-      box-shadow: 0 4px 20px rgba(76, 175, 80, 0.2);
+      box-shadow: 0 4px 20px var(--shadow-primary);
       backdrop-filter: blur(15px);
     }
   }

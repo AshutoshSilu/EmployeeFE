@@ -3,21 +3,21 @@
 .login-container {
   width: 400px;
   max-width: 90vw;
-  background: linear-gradient(145deg, #ffffff, #f8fafc);
+  background: linear-gradient(145deg, var(--background-white), var(--background-light));
   border-radius: 25px;
-  box-shadow: 0 30px 80px rgba(0, 212, 255, 0.4);
-  border: 3px solid rgba(0, 212, 255, 0.4);
+  box-shadow: 0 30px 80px var(--shadow-primary);
+  border: 3px solid var(--border-medium);
   overflow: hidden;
 }
 
 .login-header {
-  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483);
-  color: white;
+  background: linear-gradient(135deg, var(--primary-vibrant-orange), var(--secondary-deep-orange), var(--primary-dark), var(--secondary-dark));
+  color: var(--text-white);
   padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+  border-bottom: 2px solid var(--border-medium);
   
   h3 {
     margin: 0;
@@ -57,22 +57,24 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #1a1a2e;
+    color: var(--text-dark-graphite);
   }
 }
 
 .form-control {
   width: 100%;
   padding: 0.8rem;
-  border: 2px solid rgba(0, 212, 255, 0.2);
+  border: 2px solid var(--border-light);
   border-radius: 12px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  background: var(--background-white);
+  color: var(--text-dark-graphite);
   
   &:focus {
     outline: none;
-    border-color: #00d4ff;
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    border-color: var(--primary-vibrant-orange);
+    box-shadow: 0 0 15px var(--shadow-primary);
   }
 }
 
@@ -88,8 +90,8 @@
 
 .login-footer {
   padding: 1rem 1.5rem;
-  background: linear-gradient(145deg, #f8fafc, #ffffff);
-  border-top: 2px solid rgba(0, 212, 255, 0.3);
+  background: linear-gradient(145deg, var(--background-light), var(--background-white));
+  border-top: 2px solid var(--border-medium);
   display: flex;
   gap: 0.8rem;
   justify-content: flex-end;
@@ -107,7 +109,7 @@
 
 .btn-cancel {
   background: rgba(108, 117, 125, 0.1);
-  color: #6c757d;
+  color: var(--text-light);
   border: 2px solid rgba(108, 117, 125, 0.3);
   
   &:hover {
@@ -117,14 +119,14 @@
 }
 
 .btn-login {
-  background: linear-gradient(45deg, #1a1a2e, #0f3460, #533483);
-  color: white;
-  border: 2px solid rgba(0, 212, 255, 0.4);
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+  background: linear-gradient(45deg, var(--primary-vibrant-orange), var(--secondary-deep-orange), var(--primary-dark));
+  color: var(--text-white);
+  border: 2px solid var(--border-medium);
+  box-shadow: 0 4px 15px var(--shadow-primary);
   
   &:hover:not(:disabled) {
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 8px 25px var(--shadow-primary);
   }
   
   &:disabled {

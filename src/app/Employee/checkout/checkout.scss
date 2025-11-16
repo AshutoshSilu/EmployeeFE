@@ -1,13 +1,13 @@
 .checkout-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.05), rgba(139, 195, 74, 0.05));
+  background: linear-gradient(135deg, rgba(255, 138, 0, 0.05), rgba(255, 87, 34, 0.05));
 }
 
 .checkout-header {
   text-align: center;
   padding: 2rem 0;
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
-  color: white;
+  background: linear-gradient(135deg, var(--primary-vibrant-orange), var(--secondary-deep-orange));
+  color: var(--text-white);
   
   h1 {
     font-size: 2.5rem;
@@ -31,14 +31,14 @@
 }
 
 .address-section {
-  background: white;
+  background: var(--background-card);
   border-radius: 15px;
   padding: 2rem;
-  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
-  border: 2px solid rgba(139, 195, 74, 0.2);
+  box-shadow: 0 5px 15px var(--shadow-primary);
+  border: 2px solid var(--border-light);
   
   h2 {
-    color: #4caf50;
+    color: var(--primary-vibrant-orange);
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
   }
@@ -56,7 +56,7 @@
   
   label {
     font-weight: 600;
-    color: #4caf50;
+    color: var(--primary-vibrant-orange);
     margin-bottom: 0.5rem;
     font-size: 1rem;
   }
@@ -64,15 +64,17 @@
 
 .form-control {
   padding: 0.8rem;
-  border: 2px solid rgba(139, 195, 74, 0.3);
+  border: 2px solid var(--border-light);
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
+  background: var(--background-white);
+  color: var(--text-dark-graphite);
   
   &:focus {
     outline: none;
-    border-color: #66bb6a;
-    box-shadow: 0 0 10px rgba(104, 159, 56, 0.3);
+    border-color: var(--primary-vibrant-orange);
+    box-shadow: 0 0 10px var(--shadow-primary);
   }
 }
 
@@ -86,9 +88,17 @@
   }
 }
 
+.map-container {
+  height: 300px;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--border-light);
+}
+
 .location-btn {
-  background: linear-gradient(45deg, #4caf50, #66bb6a);
-  color: white;
+  background: linear-gradient(45deg, var(--primary-vibrant-orange), var(--primary-light));
+  color: var(--text-white);
   border: none;
   padding: 0.8rem 1rem;
   border-radius: 8px;
@@ -98,23 +108,23 @@
   white-space: nowrap;
   
   &:hover {
-    background: linear-gradient(45deg, #388e3c, #4caf50);
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary-vibrant-orange));
     transform: translateY(-2px);
   }
 }
 
 .order-summary {
-  background: white;
+  background: var(--background-card);
   border-radius: 15px;
   padding: 1.5rem;
   height: fit-content;
   position: sticky;
   top: 100px;
-  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
-  border: 2px solid rgba(139, 195, 74, 0.2);
+  box-shadow: 0 5px 15px var(--shadow-primary);
+  border: 2px solid var(--border-light);
   
   h3 {
-    color: #4caf50;
+    color: var(--primary-vibrant-orange);
     margin-bottom: 1rem;
     font-size: 1.5rem;
   }
@@ -129,26 +139,26 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem 0;
-  border-bottom: 1px solid rgba(139, 195, 74, 0.1);
+  border-bottom: 1px solid var(--border-light);
   
   .item-name {
-    color: #666;
+    color: var(--text-light);
     font-weight: 500;
   }
   
   .item-price {
-    color: #4caf50;
+    color: var(--primary-vibrant-orange);
     font-weight: 600;
   }
 }
 
 .summary-total {
   padding: 1rem 0;
-  border-top: 2px solid rgba(139, 195, 74, 0.2);
+  border-top: 2px solid var(--border-light);
   text-align: center;
   
   h3 {
-    color: #4caf50;
+    color: var(--primary-vibrant-orange);
     font-size: 1.3rem;
     margin: 0;
   }
@@ -161,17 +171,17 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background: linear-gradient(45deg, #4caf50, #66bb6a);
+  background: linear-gradient(45deg, var(--primary-vibrant-orange), var(--secondary-deep-orange));
   border: none;
   border-radius: 8px;
-  color: white;
+  color: var(--text-white);
   cursor: pointer;
   transition: all 0.3s ease;
   
   &:hover {
-    background: linear-gradient(45deg, #388e3c, #4caf50);
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary-vibrant-orange));
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    box-shadow: 0 4px 15px var(--shadow-primary);
   }
 }
 

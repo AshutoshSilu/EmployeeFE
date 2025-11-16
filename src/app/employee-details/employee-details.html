@@ -1,11 +1,11 @@
-<div class="employee-details" *ngIf="employee">
-  <div class="employee-image" *ngIf="employee.image">
-    <img [src]="selectedImage()" alt="{{employee.firstName}} {{employee.lastName}}">
+<div class="employee-details">
+  <div class="employee-image" *ngIf="selectedImage()">
+    <img [src]="selectedImage()" alt="{{employee?.firstName}} {{employee?.lastName}}">
   </div>
   <div class="employee-info">
-    <h2>{{employee.firstName}} {{employee.lastName}}</h2>
-    <p><strong>ID:</strong> {{employee.employeeId}}</p>
-    <p><strong>Email:</strong> {{employee.email}}</p>
-    <p><strong>Department:</strong> {{employee.department}}</p>
+    <h2>{{employee?.firstName}} {{employee?.lastName}}</h2>
+    <p><strong>ID:</strong> {{employee?.employeeId}}</p>
+    <p><strong>Email:</strong> {{employee?.email}}</p>
+    <p><strong>Department:</strong> {{employee?.department}}</p>
   </div>
 </div>

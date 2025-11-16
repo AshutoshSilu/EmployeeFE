@@ -1,28 +1,26 @@
 import { Component, HostListener, inject, signal, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './menu/menu';
-import { AuthService } from '../services/auth.service';
-import { LoginPopupComponent } from './login-popup/login-popup';
-
+import { AuthService } from '../../services/auth.service';
+import { LoginPopupComponent } from '../login-popup/login-popup';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, MenuComponent, LoginPopupComponent],
+  imports: [CommonModule, LoginPopupComponent],
   templateUrl: './header.html',
   styleUrls: ['./header.scss']
 })
 export class HeaderComponent {
-home() {
- this.router.navigateByUrl('/');
-}
+  home() {
+    this.router.navigateByUrl('/');
+  }
   private router = inject(Router);
   private authService = inject(AuthService);
-  
+
   isMenuOpen = signal(false);
   showMenuDropdown = signal(false);
   showLoginPopup = signal(false);
-  
+
   isLoggedIn = computed(() => this.authService.isLoggedIn());
   currentUser = computed(() => this.authService.currentUser());
 
@@ -83,5 +81,10 @@ home() {
   navigateToOrderNow(event: Event) {
     event.preventDefault();
     this.router.navigate(['/order-now']);
+  }
+
+  navigateToOffers(event: Event) {
+    event.preventDefault();
+    this.router.navigate(['/offers']);
   }
 }

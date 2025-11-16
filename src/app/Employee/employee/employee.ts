@@ -2,7 +2,6 @@ import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService, Employee } from '../../services/employee';
-import { HeaderComponent } from '../../shared/header';
 
 import { RegistrationComponent } from '../registration/registration';
 

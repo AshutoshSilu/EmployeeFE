@@ -1,8 +1,8 @@
 import { Component, inject, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { HeaderComponent } from '../../shared/header';
-import { FooterComponent } from '../../shared/footer';
+import { HeaderComponent } from '../../shared/header/header';
+import { FooterComponent } from '../../shared/footer/footer';
 
 @Component({
   selector: 'app-dashboard',

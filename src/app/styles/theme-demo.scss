@@ -1,0 +1,97 @@
+/* Theme Demo Component - Shows all new colors */
+.theme-demo {
+  padding: 2rem;
+  background: var(--background-cream);
+  
+  .color-palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .color-card {
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--text-white);
+    font-weight: 600;
+    
+    &.primary {
+      background: var(--primary-vibrant-orange);
+    }
+    
+    &.secondary {
+      background: var(--secondary-deep-orange);
+    }
+    
+    &.accent {
+      background: var(--accent-lime);
+      color: var(--text-dark-graphite);
+    }
+    
+    &.background {
+      background: var(--background-cream);
+      color: var(--text-dark-graphite);
+      border: 2px solid var(--border-light);
+    }
+  }
+  
+  .button-showcase {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    
+    .demo-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &.primary {
+        background: linear-gradient(45deg, var(--primary-vibrant-orange), var(--primary-light));
+        color: var(--text-white);
+        
+        &:hover {
+          background: linear-gradient(45deg, var(--primary-dark), var(--primary-vibrant-orange));
+          transform: translateY(-2px);
+        }
+      }
+      
+      &.secondary {
+        background: linear-gradient(45deg, var(--secondary-deep-orange), var(--secondary-light));
+        color: var(--text-white);
+        
+        &:hover {
+          background: linear-gradient(45deg, var(--secondary-dark), var(--secondary-deep-orange));
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+  
+  .card-showcase {
+    .demo-card {
+      background: var(--background-card);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px var(--shadow-light);
+      
+      .card-header {
+        color: var(--primary-vibrant-orange);
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      
+      .card-content {
+        color: var(--text-dark-graphite);
+        line-height: 1.6;
+      }
+    }
+  }
+}

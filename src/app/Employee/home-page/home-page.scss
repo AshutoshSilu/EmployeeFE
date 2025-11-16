@@ -1,13 +1,13 @@
 .home-container {
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
+  background: linear-gradient(135deg, rgba(255, 138, 0, 0.1), rgba(255, 87, 34, 0.1));
 }
 
 .hero-section {
   height: 100vh;
   background: 
-    linear-gradient(135deg, rgba(76, 175, 80, 0.8), rgba(104, 159, 56, 0.8), rgba(139, 195, 74, 0.7)),
+    linear-gradient(135deg, rgba(255, 138, 0, 0.8), rgba(255, 87, 34, 0.8), rgba(255, 183, 77, 0.7)),
     url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
   display: flex;
   align-items: center;
@@ -28,12 +28,12 @@
   font-size: 4rem;
   font-weight: 800;
   margin: 0 0 1rem 0;
-  background: linear-gradient(45deg, #fff, #e8f5e8, #f1f8e9);
+  background: linear-gradient(45deg, var(--text-white), var(--accent-lime), var(--background-cream));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  filter: drop-shadow(0 0 20px rgba(139, 195, 74, 0.5));
+  filter: drop-shadow(0 0 20px var(--shadow-primary));
 }
 
 .subtitle {
@@ -53,7 +53,7 @@
 }
 
 .food-icon, .delivery-icon, .chef-icon {
-  filter: drop-shadow(0 0 10px rgba(139, 195, 74, 0.5));
+  filter: drop-shadow(0 0 10px var(--shadow-primary));
 }
 
 .cta-buttons {
@@ -68,13 +68,13 @@
   padding: 1.2rem 3rem;
   font-size: 1.4rem;
   font-weight: 800;
-  background: linear-gradient(45deg, #4caf50, #66bb6a, #8bc34a);
-  border: 3px solid #fff;
+  background: linear-gradient(45deg, var(--primary-vibrant-orange), var(--secondary-deep-orange), var(--primary-light));
+  border: 3px solid var(--text-white);
   border-radius: 50px;
-  color: white;
+  color: var(--text-white);
   text-transform: uppercase;
   letter-spacing: 1px;
-  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 8px 25px var(--shadow-primary);
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -90,8 +90,8 @@
 
 .order-now-btn:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(76, 175, 80, 0.6);
-  background: linear-gradient(45deg, #388e3c, #4caf50, #689f38);
+  box-shadow: 0 12px 35px var(--shadow-primary);
+  background: linear-gradient(45deg, var(--primary-dark), var(--primary-vibrant-orange), var(--secondary-dark));
 }
 
 @keyframes pulse {
@@ -105,7 +105,7 @@
 
 .features-section {
   padding: 5rem 0;
-  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
+  background: linear-gradient(135deg, var(--background-cream), var(--background-light));
 }
 
 .section-title {
@@ -113,7 +113,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 3rem;
-  color: #4caf50;
+  color: var(--primary-vibrant-orange);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -126,32 +126,32 @@
 }
 
 .feature-card {
-  background: white;
+  background: var(--background-white);
   padding: 2rem;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(76, 175, 80, 0.1);
-  border: 2px solid rgba(139, 195, 74, 0.2);
+  box-shadow: 0 10px 30px var(--shadow-light);
+  border: 2px solid var(--border-light);
   transition: all 0.3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.2);
-  border-color: rgba(139, 195, 74, 0.5);
+  box-shadow: 0 20px 40px var(--shadow-primary);
+  border-color: var(--border-medium);
 }
 
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 0 10px rgba(139, 195, 74, 0.3));
+  filter: drop-shadow(0 0 10px var(--shadow-primary));
 }
 
 .feature-card h3 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #4caf50;
+  color: var(--primary-vibrant-orange);
 }
 
 .feature-card p {
@@ -215,7 +215,7 @@
 
 .contact-section {
   padding: 5rem 0;
-  background: white;
+  background: var(--background-white);
 }
 
 .contact-grid {
@@ -235,29 +235,29 @@
 .contact-item {
   text-align: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
+  background: linear-gradient(135deg, var(--background-cream), var(--background-light));
   border-radius: 15px;
-  border: 2px solid rgba(139, 195, 74, 0.2);
+  border: 2px solid var(--border-light);
   transition: all 0.3s ease;
 }
 
 .contact-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(76, 175, 80, 0.1);
-  border-color: rgba(139, 195, 74, 0.5);
+  box-shadow: 0 10px 25px var(--shadow-light);
+  border-color: var(--border-medium);
 }
 
 .contact-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 0 10px rgba(139, 195, 74, 0.3));
+  filter: drop-shadow(0 0 10px var(--shadow-primary));
 }
 
 .contact-item h3 {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #4caf50;
+  color: var(--primary-vibrant-orange);
 }
 
 .contact-item p {
@@ -266,10 +266,10 @@
 }
 
 .contact-form {
-  background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
+  background: linear-gradient(135deg, var(--background-cream), var(--background-light));
   padding: 2rem;
   border-radius: 15px;
-  border: 2px solid rgba(139, 195, 74, 0.2);
+  border: 2px solid var(--border-light);
 }
 
 .form-group {
@@ -277,13 +277,13 @@
 }
 
 .contact-form .form-control {
-  border: 1px solid rgba(139, 195, 74, 0.3);
-  background: white;
+  border: 1px solid var(--border-light);
+  background: var(--background-white);
 }
 
 .contact-form .form-control:focus {
-  border-color: #66bb6a;
-  box-shadow: 0 0 10px rgba(104, 159, 56, 0.3);
+  border-color: var(--primary-vibrant-orange);
+  box-shadow: 0 0 10px var(--shadow-primary);
 }
 
 @media (max-width: 768px) {

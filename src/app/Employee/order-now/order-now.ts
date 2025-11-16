@@ -1,8 +1,8 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { HeaderComponent } from '../../shared/header';
-import { FooterComponent } from '../../shared/footer';
+import { HeaderComponent } from '../../shared/header/header';
+import { FooterComponent } from '../../shared/footer/footer';
 
 interface Dish {
   id: number;
@@ -113,7 +113,10 @@ export class OrderNowComponent {
 
   proceedToCheckout() {
     this.router.navigate(['/checkout'], {
-      state: { cartItems: this.cartItems() }
+      state: { 
+        cartItems: this.cartItems(),
+        total: this.getCartTotal()
+      }
     });
   }
 }

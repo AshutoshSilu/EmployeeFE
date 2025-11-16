@@ -1,0 +1,74 @@
+<div class="payment-overlay" (click)="closePayment()">
+  <div class="payment-popup" (click)="$event.stopPropagation()">
+    <div class="payment-header">
+      <h2>💳 Payment Gateway</h2>
+      <button class="close-btn" (click)="closePayment()">✕</button>
+    </div>
+    
+    <div class="payment-content">
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="total-amount">₹{{ orderTotal }}</div>
+      </div>
+      
+      <div class="payment-methods">
+        <h3>Select Payment Method</h3>
+        <div class="payment-options">
+          <label class="payment-option" [class.selected]="selectedMethod === 'card'">
+            <input type="radio" name="payment" value="card" [(ngModel)]="selectedMethod">
+            <span class="option-icon">💳</span>
+            <span>Credit/Debit Card</span>
+          </label>
+          
+          <label class="payment-option" [class.selected]="selectedMethod === 'upi'">
+            <input type="radio" name="payment" value="upi" [(ngModel)]="selectedMethod">
+            <span class="option-icon">📱</span>
+            <span>UPI Payment</span>
+          </label>
+          
+          <label class="payment-option" [class.selected]="selectedMethod === 'cod'">
+            <input type="radio" name="payment" value="cod" [(ngModel)]="selectedMethod">
+            <span class="option-icon">💰</span>
+            <span>Cash on Delivery</span>
+          </label>
+        </div>
+      </div>
+      
+      @if (selectedMethod === 'card') {
+      <div class="card-details">
+        <div class="form-group">
+          <input type="text" placeholder="Card Number" class="form-control" [(ngModel)]="cardNumber" maxlength="19">
+        </div>
+        <div class="form-row">
+          <input type="text" placeholder="MM/YY" class="form-control" [(ngModel)]="expiryDate" maxlength="5">
+          <input type="text" placeholder="CVV" class="form-control" [(ngModel)]="cvv" maxlength="3">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Cardholder Name" class="form-control" [(ngModel)]="cardholderName">
+        </div>
+      </div>
+      }
+      
+      @if (selectedMethod === 'upi') {
+      <div class="upi-details">
+        <div class="form-group">
+          <input type="text" placeholder="UPI ID (e.g., user@paytm)" class="form-control" [(ngModel)]="upiId">
+        </div>
+      </div>
+      }
+      
+      @if (selectedMethod === 'cod') {
+      <div class="cod-info">
+        <p>💡 You will pay ₹{{ orderTotal }} in cash when your order is delivered.</p>
+      </div>
+      }
+    </div>
+    
+    <div class="payment-footer">
+      <button class="btn btn-secondary" (click)="closePayment()">Cancel</button>
+      <button class="btn btn-primary" (click)="processPayment()" [disabled]="!isPaymentValid()">
+        {{ selectedMethod === 'cod' ? 'Place Order' : 'Pay ₹' + orderTotal }}
+      </button>
+    </div>
+  </div>
+</div>
