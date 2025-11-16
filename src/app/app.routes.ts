@@ -6,10 +6,11 @@ import { EmployeeDetails } from './employee-details/employee-details';
 import { DashboardComponent } from './Employee/dashboard/dashboard';
 import { OrderNowComponent } from './Employee/order-now/order-now';
 import { CheckoutComponent } from './Employee/checkout/checkout';
-import { authGuard, loginGuard } from './guards/auth.guard';
+import { authGuard } from './guards/auth.guard';
 import { Offers } from './shared/offers/offers';
 import { Adslider } from './Employee/Adslider/adslider';
 import { MenuPageComponent } from './menu/menu-page';
+import { Contactus } from './shared/ContactUS/contactus';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -21,7 +22,7 @@ export const routes: Routes = [
   { path: 'employee-details/:id', component: EmployeeDetails, canActivate: [authGuard] },
   { path: 'offers', component: Offers },
   { path: 'ad-slider', component: Adslider },
-  
+  { path: 'contact-us',component: Contactus},
   // Menu routes
   { path: 'menu/appetizers/salads', component: MenuPageComponent, data: { title: 'Salads', description: 'Fresh and healthy salad options' } },
   { path: 'menu/appetizers/soups', component: MenuPageComponent, data: { title: 'Soups', description: 'Warm and comforting soup varieties' } },

@@ -1,9 +1,10 @@
 import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { EmployeeService, Employee } from '../../services/employee';
+import { EmployeeService } from '../../services/employee';
 
 import { RegistrationComponent } from '../registration/registration';
+import { Employee } from '../../models/employee.model';
 
 @Component({
   selector: 'app-employee',
