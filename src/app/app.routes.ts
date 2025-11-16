@@ -8,6 +8,7 @@ import { OrderNowComponent } from './Employee/order-now/order-now';
 import { CheckoutComponent } from './Employee/checkout/checkout';
 import { authGuard, loginGuard } from './guards/auth.guard';
 import { Offers } from './shared/offers/offers';
+import { Adslider } from './Employee/Adslider/adslider';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -18,6 +19,7 @@ export const routes: Routes = [
   { path: 'employee', component: EmployeeComponent, canActivate: [authGuard] },
   { path: 'employee-details/:id', component: EmployeeDetails, canActivate: [authGuard] },
   { path: 'offers', component: Offers },
+  {path: 'ad-slider', component: Adslider},
   { path: '**', redirectTo: '' },
 
 ];
