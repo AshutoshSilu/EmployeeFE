@@ -4,16 +4,9 @@ import { Router } from '@angular/router';
 import { HeaderComponent } from '../../shared/header/header';
 import { FooterComponent } from '../../shared/footer/footer';
 import { PaymentGatewayComponent } from '../payment-gateway/payment-gateway';
+import { OrderItem } from '../../models/order.model';
 
 declare var google: any;
-
-interface OrderItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
 @Component({
   selector: 'app-checkout',
   imports: [CommonModule, HeaderComponent, FooterComponent, PaymentGatewayComponent],

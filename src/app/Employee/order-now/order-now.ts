@@ -3,18 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HeaderComponent } from '../../shared/header/header';
 import { FooterComponent } from '../../shared/footer/footer';
-
-interface Dish {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-}
-
-interface CartItem extends Dish {
-  quantity: number;
-}
+import { CartItem, Dish } from '../../models/order.model';
 
 @Component({
   selector: 'app-order-now',

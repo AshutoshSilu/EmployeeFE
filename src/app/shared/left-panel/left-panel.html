@@ -1,0 +1,27 @@
+<div class="left-panel">
+  <div class="panel-header">
+    <h3>Food Menu</h3>
+  </div>
+  
+  <div class="categories-list">
+    @for (category of foodCategories(); track category.id) {
+      <div class="category-item">
+        <div class="category-header" (click)="toggleCategory(category.id)">
+          <span class="category-icon">{{ category.icon }}</span>
+          <span class="category-name">{{ category.name }}</span>
+          <span class="expand-icon" [class.expanded]="category.isExpanded">▼</span>
+        </div>
+        
+        @if (category.isExpanded) {
+          <div class="subcategories">
+            @for (subcategory of category.subcategories; track subcategory.id) {
+              <div class="subcategory-item" (click)="navigateToSubcategory(subcategory.route)">
+                {{ subcategory.name }}
+              </div>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
