@@ -2,11 +2,12 @@ import { Component, inject, signal, computed } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeaderComponent } from '../../shared/header/header';
 import { FooterComponent } from '../../shared/footer/footer';
+import { Adslider } from '../Adslider/adslider';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home-page',
-  imports: [HeaderComponent, FooterComponent],
+  imports: [HeaderComponent, FooterComponent, Adslider],
   templateUrl: './home-page.html',
   styleUrl: './home-page.scss',
 })

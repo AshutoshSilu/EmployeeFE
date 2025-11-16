@@ -1,9 +1,9 @@
 <header class="header">
   <div class="header-container">
     <div class="header-left">
-      <div class="logo">
-        <span class="logo-icon">🍽️</span>
-        <span class="logo-text">Mom’s Magic</span>
+      <div class="logo" (click)="home()">
+        <img src="assets/img/MOM.png" alt="Mom's Magic Logo">
+        <span class="logo-text">Mom’s Magic <br>Mealbox</span>
       </div>
       <nav class="nav-links" [class.active]="isMenuOpen()">
         <a href="#" class="nav-link">

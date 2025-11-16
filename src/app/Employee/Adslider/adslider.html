@@ -1,3 +1,57 @@
-<div>
-    <div>Ads</div>
+<div class="ad-slider">
+  <div class="slider-container">
+    <div class="slides" [style.transform]="'translateX(-' + (currentSlide() * 100) + '%)'">
+      @for (ad of ads; track $index) {
+        <div class="slide">
+          <div class="slide-content">
+            <div class="slide-text">
+              <div class="offer-badge">{{ ad.offer }}</div>
+              <h3 class="slide-title">{{ ad.title }}</h3>
+              <p class="slide-description">{{ ad.description }}</p>
+              <button class="order-btn" (click)="navigateToOrder()">Order Now</button>
+            </div>
+            <div class="slide-image">
+              <img [src]="ad.image" [alt]="ad.title">
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <button class="nav-btn prev" (click)="prevSlide()">‹</button>
+    <button class="nav-btn next" (click)="nextSlide()">›</button>
+    
+    <div class="dots">
+      @for (ad of ads; track $index) {
+        <button 
+          class="dot" 
+          [class.active]="currentSlide() === $index"
+          (click)="goToSlide($index)">
+        </button>
+      }
+    </div>
+  </div>
+  
+  <div class="mealbox-section">
+    <div class="mealbox-container">
+      <h2 class="mealbox-title">Our Signature MealBoxes</h2>
+      <div class="mealbox-grid">
+        <div class="mealbox-item">
+          <img src="https://images.unsplash.com/photo-1546069901-d5bfd2cbfb1f?w=300&h=200&fit=crop" alt="Family MealBox">
+          <h3>Family MealBox</h3>
+          <p>Perfect for 4-6 people</p>
+        </div>
+        <div class="mealbox-item">
+          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&h=200&fit=crop" alt="Healthy MealBox">
+          <h3>Healthy MealBox</h3>
+          <p>Nutritious & delicious</p>
+        </div>
+        <div class="mealbox-item">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=300&h=200&fit=crop" alt="Gourmet MealBox">
+          <h3>Gourmet MealBox</h3>
+          <p>Premium dining experience</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
