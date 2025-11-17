@@ -11,6 +11,7 @@ import { Offers } from './shared/offers/offers';
 import { Adslider } from './Employee/Adslider/adslider';
 import { MenuPageComponent } from './menu/menu-page';
 import { Contactus } from './shared/ContactUS/contactus';
+import { ChatBoat } from '../chat-boat/chat-boat';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: 'offers', component: Offers },
   { path: 'ad-slider', component: Adslider },
   { path: 'contact-us',component: Contactus},
+  {path:'chatBoat',component : ChatBoat},
   // Menu routes
   { path: 'menu/appetizers/salads', component: MenuPageComponent, data: { title: 'Salads', description: 'Fresh and healthy salad options' } },
   { path: 'menu/appetizers/soups', component: MenuPageComponent, data: { title: 'Soups', description: 'Warm and comforting soup varieties' } },
