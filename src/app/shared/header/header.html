@@ -18,6 +18,12 @@
           <span class="nav-icon">🛒</span>
           Order Now
         </a>
+        @if (isLoggedIn()) {
+        <a href="#" class="nav-link" (click)="navigateToTrackOrder($event)">
+          <span class="nav-icon">📦</span>
+          Track Order
+        </a>
+        }
         <a href="#" class="nav-link" (click)="navigateToEmployeePortal($event)">
           <span class="nav-icon">💼</span>
           Employee Portal

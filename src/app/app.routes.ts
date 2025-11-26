@@ -6,6 +6,7 @@ import { EmployeeDetails } from './employee-details/employee-details';
 import { DashboardComponent } from './Employee/dashboard/dashboard';
 import { OrderNowComponent } from './Employee/order-now/order-now';
 import { CheckoutComponent } from './Employee/checkout/checkout';
+import { TrackOrderComponent } from './Employee/track-order/track-order';
 import { authGuard } from './guards/auth.guard';
 import { Offers } from './shared/offers/offers';
 import { Adslider } from './Employee/Adslider/adslider';
@@ -18,6 +19,7 @@ export const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'order-now', component: OrderNowComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'track-order', component: TrackOrderComponent, canActivate: [authGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'employee', component: EmployeeComponent, canActivate: [authGuard] },
   { path: 'employee-details/:id', component: EmployeeDetails, canActivate: [authGuard] },

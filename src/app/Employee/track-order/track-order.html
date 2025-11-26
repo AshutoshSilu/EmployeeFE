@@ -1,0 +1,73 @@
+<div class="track-order-container" *ngIf="order(); else noOrder">
+  <div class="order-header">
+    <h2>Track Your Order</h2>
+    <div class="order-id">Order ID: {{ order()!.id }}</div>
+  </div>
+
+  <div class="order-status">
+    <div class="status-indicator" [ngClass]="getStatusClass()">
+      <div class="status-text">{{ order()!.status | titlecase }}</div>
+    </div>
+  </div>
+
+  <div class="order-timeline">
+    <div class="timeline-item" [class.active]="order()!.status === 'ordered' || order()!.status === 'preparing' || order()!.status === 'ready' || order()!.status === 'delivered'">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">Order Placed</div>
+    </div>
+    <div class="timeline-item" [class.active]="order()!.status === 'preparing' || order()!.status === 'ready' || order()!.status === 'delivered'">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">Preparing</div>
+    </div>
+    <div class="timeline-item" [class.active]="order()!.status === 'ready' || order()!.status === 'delivered'">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">Ready</div>
+    </div>
+    <div class="timeline-item" [class.active]="order()!.status === 'delivered'">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">Delivered</div>
+    </div>
+  </div>
+
+  <div class="order-details">
+    <h3>Order Details</h3>
+    <div class="order-items">
+      <div class="item" *ngFor="let item of order()!.items">
+        <span class="item-name">{{ item.name }}</span>
+        <span class="item-quantity">x{{ item.quantity }}</span>
+        <span class="item-price">₹{{ item.price }}</span>
+      </div>
+    </div>
+    <div class="order-total">
+      <strong>Total: ₹{{ order()!.total }}</strong>
+    </div>
+  </div>
+
+  <div class="cancel-section" *ngIf="order()!.status === 'ordered'">
+    <div class="cancel-timer" *ngIf="canCancel">
+      <span>Cancel within: {{ formatTime(timeRemaining) }}</span>
+    </div>
+    <button 
+      class="cancel-btn" 
+      [disabled]="!canCancel" 
+      (click)="cancelOrder()">
+      {{ canCancel ? 'Cancel Order' : 'Cannot Cancel' }}
+    </button>
+  </div>
+
+  <div class="cancelled-message" *ngIf="order()!.status === 'cancelled'">
+    <div class="alert alert-warning">
+      Your order has been cancelled successfully.
+    </div>
+  </div>
+</div>
+
+<ng-template #noOrder>
+  <div class="no-order-container">
+    <div class="no-order-message">
+      <h2>No Active Orders</h2>
+      <p>You don't have any active orders to track.</p>
+      <button class="order-now-btn" routerLink="/order-now">Order Now</button>
+    </div>
+  </div>
+</ng-template>

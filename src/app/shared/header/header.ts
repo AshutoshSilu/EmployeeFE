@@ -87,4 +87,9 @@ export class HeaderComponent {
     event.preventDefault();
     this.router.navigate(['/offers']);
   }
+
+  navigateToTrackOrder(event: Event) {
+    event.preventDefault();
+    this.router.navigate(['/track-order']);
+  }
 }
