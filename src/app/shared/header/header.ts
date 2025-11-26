@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { LoginPopupComponent } from '../login-popup/login-popup';
+import { ContactUsComponent } from '../ContactUS/contactus';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, LoginPopupComponent],
+  imports: [CommonModule, LoginPopupComponent, ContactUsComponent],
   templateUrl: './header.html',
-  styleUrls: ['./header.scss']
+  styleUrls: ['./header.scss', './contact-popup.scss']
 })
 export class HeaderComponent {
   home() {
@@ -20,6 +21,7 @@ export class HeaderComponent {
   isMenuOpen = signal(false);
   showMenuDropdown = signal(false);
   showLoginPopup = signal(false);
+  showContactPopup = signal(false);
 
   isLoggedIn = computed(() => this.authService.isLoggedIn());
   currentUser = computed(() => this.authService.currentUser());
@@ -52,6 +54,14 @@ export class HeaderComponent {
     this.showLoginPopup.set(false);
   }
 
+  openContactPopup() {
+    this.showContactPopup.set(true);
+  }
+
+  closeContactPopup() {
+    this.showContactPopup.set(false);
+  }
+
   navigateToRegistration() {
     this.router.navigate(['/registration']);
   }
@@ -72,10 +82,7 @@ export class HeaderComponent {
 
   scrollToContact(event: Event) {
     event.preventDefault();
-    const contactSection = document.querySelector('.contact-section');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    this.openContactPopup();
   }
 
   navigateToOrderNow(event: Event) {
@@ -91,5 +98,10 @@ export class HeaderComponent {
   navigateToTrackOrder(event: Event) {
     event.preventDefault();
     this.router.navigate(['/track-order']);
+  }
+
+  navigateToCustomerDashboard(event: Event) {
+    event.preventDefault();
+    this.router.navigate(['/customer']);
   }
 }

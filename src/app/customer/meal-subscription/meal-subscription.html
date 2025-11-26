@@ -1,0 +1,38 @@
+<div class="subscription-page">
+  <div class="header">
+    <button class="back-btn" (click)="goBack()">← Back</button>
+    <h1>Choose Your Subscription Plan</h1>
+  </div>
+
+  <div class="plans-container">
+    <div 
+      class="plan-card" 
+      *ngFor="let plan of subscriptionPlans"
+      [class.selected]="selectedPlan === plan.id"
+      (click)="selectPlan(plan.id)">
+      
+      <div class="plan-header">
+        <h3>{{ plan.duration }}</h3>
+        <div class="discount" *ngIf="plan.discount > 0">{{ plan.discount }}% OFF</div>
+      </div>
+      
+      <div class="plan-price">
+        <span class="currency">₹</span>
+        <span class="amount">{{ plan.price }}</span>
+      </div>
+      
+      <div class="plan-features">
+        <div class="feature">✓ Daily fresh meals</div>
+        <div class="feature">✓ Free delivery</div>
+        <div class="feature">✓ 24/7 support</div>
+        <div class="feature" *ngIf="plan.discount > 0">✓ {{ plan.discount }}% savings</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-section">
+    <button class="subscribe-button" (click)="subscribe()">
+      Subscribe Now
+    </button>
+  </div>
+</div>

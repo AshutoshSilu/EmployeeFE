@@ -23,6 +23,10 @@
           <span class="nav-icon">📦</span>
           Track Order
         </a>
+        <a href="#" class="nav-link" (click)="navigateToCustomerDashboard($event)">
+          <span class="nav-icon">🍽️</span>
+          Meal Packages
+        </a>
         }
         <a href="#" class="nav-link" (click)="navigateToEmployeePortal($event)">
           <span class="nav-icon">💼</span>
@@ -63,6 +67,20 @@
   <div class="modal-backdrop" (click)="closeLoginPopup()"></div>
   <div class="login-popup-wrapper">
     <app-login-popup (closeLogin)="closeLoginPopup()"></app-login-popup>
+  </div>
+</div>
+}
+
+<!-- Contact Popup -->
+@if (showContactPopup()) {
+<div class="contact-overlay">
+  <div class="modal-backdrop" (click)="closeContactPopup()"></div>
+  <div class="contact-popup-wrapper">
+    <div class="popup-header">
+      <h3>Contact Us</h3>
+      <button class="close-btn" (click)="closeContactPopup()">&times;</button>
+    </div>
+    <app-contact-us></app-contact-us>
   </div>
 </div>
 }

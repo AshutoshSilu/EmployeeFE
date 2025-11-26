@@ -1,0 +1,67 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h2>Support Dashboard</h2>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="chat-content">
+    <div class="chat-list">
+      <div class="chat-list-header">
+        <h3>Active Chats ({{ chatUsers().length }})</h3>
+      </div>
+      
+      <div class="chat-users">
+        @for (user of chatUsers(); track user.id) {
+          <div class="chat-user-item" 
+               [class.selected]="selectedUser()?.id === user.id"
+               (click)="selectUser(user)">
+            <div class="user-avatar">
+              <img [src]="user.avatar" [alt]="user.name">
+              <div class="online-status" [class.online]="user.isOnline"></div>
+            </div>
+            
+            <div class="user-info">
+              <div class="user-name">{{ user.name }}</div>
+              <div class="last-message">{{ user.lastMessage }}</div>
+            </div>
+            
+            <div class="chat-meta">
+              <div class="timestamp">{{ getTimeAgo(user.timestamp) }}</div>
+              @if (user.unreadCount > 0) {
+                <div class="unread-badge">{{ user.unreadCount }}</div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="chat-window">
+      @if (selectedUser()) {
+        <div class="chat-window-header">
+          <div class="selected-user-info">
+            <img [src]="selectedUser()!.avatar" [alt]="selectedUser()!.name">
+            <div>
+              <div class="name">{{ selectedUser()!.name }}</div>
+              <div class="status">{{ selectedUser()!.isOnline ? 'Online' : 'Offline' }}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="messages-area">
+          <div class="message-placeholder">
+            <p>Chat with {{ selectedUser()!.name }}</p>
+            <small>Click on a user to start chatting</small>
+          </div>
+        </div>
+      } @else {
+        <div class="no-chat-selected">
+          <div class="placeholder-content">
+            <h3>Welcome to Support Dashboard</h3>
+            <p>Select a chat from the list to start helping customers</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

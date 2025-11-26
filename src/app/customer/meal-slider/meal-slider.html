@@ -1,0 +1,18 @@
+<div class="meal-slider">
+  <div class="slider-container">
+    <div class="meal-card" *ngFor="let meal of mealPackages" (click)="onMealClick(meal.id)">
+      <div class="meal-image">
+        <img [src]="meal.image" [alt]="meal.name" />
+        <div class="price-tag">₹{{ meal.price }}</div>
+      </div>
+      <div class="meal-content">
+        <h3>{{ meal.name }}</h3>
+        <p>{{ meal.description }}</p>
+        <div class="meal-items">
+          <span *ngFor="let item of meal.items" class="item-tag">{{ item }}</span>
+        </div>
+        <button class="subscribe-btn">Subscribe Now</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="support-login-container">
+  <div class="login-header">
+    <h2>Support Team Login</h2>
+    <p>Access your support dashboard</p>
+  </div>
+  
+  <div class="login-form">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="form-group">
+        <input 
+          type="text" 
+          placeholder="Username"
+          [(ngModel)]="username"
+          name="username"
+          required
+          class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <input 
+          type="password" 
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+          required
+          class="form-control">
+      </div>
+      
+      @if (error()) {
+        <div class="error-message">{{ error() }}</div>
+      }
+      
+      <button 
+        type="submit" 
+        class="login-btn"
+        [disabled]="isLoading()">
+        @if (isLoading()) {
+          <span>Logging in...</span>
+        } @else {
+          <span>Login</span>
+        }
+      </button>
+      
+      <button 
+        type="button" 
+        class="home-btn"
+        (click)="goHome()">
+        Back to Home
+      </button>
+    </form>
+  </div>
+</div>
