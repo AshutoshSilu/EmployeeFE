@@ -1,6 +1,7 @@
-import { Component, signal, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, signal, OnInit, OnDestroy, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-adslider',
@@ -10,8 +11,11 @@ import { Router } from '@angular/router';
 })
 export class Adslider implements OnInit, OnDestroy {
   private router = inject(Router);
+  private authService = inject(AuthService);
   currentSlide = signal(0);
   private intervalId: any;
+  
+  isLoggedIn = computed(() => this.authService.isLoggedIn());
 
   ads = [
     {
@@ -67,6 +71,10 @@ export class Adslider implements OnInit, OnDestroy {
   }
 
   navigateToOrder() {
-    this.router.navigate(['/order-now']);
+    if (this.isLoggedIn()) {
+      this.router.navigate(['/order-now']);
+    } else {
+      this.router.navigate(['/registration']);
+    }
   }
 }

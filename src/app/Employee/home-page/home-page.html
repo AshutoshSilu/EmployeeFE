@@ -1,29 +1,46 @@
 <app-header></app-header>
-<div class="home-layout">
-  <app-left-panel></app-left-panel>
-  <div class="home-container">
-    <app-adslider></app-adslider>
-  <div class="features-section">
-    <div class="container">
-      <h2 class="section-title">Why Choose Mom's Kitchen?</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🥘</div>
-          <h3>Fresh Ingredients</h3>
-          <p>Premium quality ingredients sourced daily</p>
+<div class="home-wrapper">
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to <span class="brand-highlight">Kaka's Kitchen</span></h1>
+            <p class="hero-subtitle">Authentic Home-Style Cooking Delivered Fresh</p>
+            <p class="hero-description">Experience the warmth of home-cooked meals made with love, fresh ingredients,
+                and traditional recipes passed down through generations.</p>
+            <div class="hero-buttons">
+                <button class="cta-primary" routerLink="/order-now">🍽️ Order Now</button>
+                <button class="cta-secondary" routerLink="/menu">📋 View Menu</button>
+            </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Fast Delivery</h3>
-          <p>Quick preparation and lightning-fast delivery</p>
+        <div class="hero-image">
+            <div class="floating-food">🍛</div>
+            <div class="floating-food">🥘</div>
+            <div class="floating-food">🍜</div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">👥</div>
-          <h3>Expert Team</h3>
-          <p>Professional chefs and dedicated staff</p>
+    </section>
+
+    <section class="popular-dishes">
+        <div class="container">
+            <h2 class="section-title">Popular Dishes</h2>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <div class="dish-image">🍛</div>
+                    <h3>Biryani Special</h3>
+                    <p>Aromatic basmati rice with tender meat</p>
+                    <span class="price">₹299</span>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">🍜</div>
+                    <h3>Dal Tadka</h3>
+                    <p>Traditional lentils with Indian spices</p>
+                    <span class="price">₹149</span>
+                </div>
+                <div class="dish-card">
+                    <div class="dish-image">🥘</div>
+                    <h3>Butter Chicken</h3>
+                    <p>Creamy tomato-based chicken curry</p>
+                    <span class="price">₹249</span>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 </div>
-<app-footer></app-footer>

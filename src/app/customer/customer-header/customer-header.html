@@ -1,0 +1,16 @@
+<header class="customer-header">
+  <div class="header-container">
+    <div class="logo" (click)="navigateToHome()">
+      <span>🍽️ Mom's Magic</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="#" (click)="navigateToHome()">Home</a>
+      <a href="#" (click)="navigateToOrders()">My Orders</a>
+      <a href="#" (click)="navigateToProfile()">Profile</a>
+    </nav>
+    <div class="user-actions">
+      <span class="welcome-text">Welcome, Customer!</span>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</header>

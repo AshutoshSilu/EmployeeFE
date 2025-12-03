@@ -41,7 +41,6 @@ export class MealSubscriptionComponent implements OnInit {
   }
 
   subscribe() {
-    alert('Subscription successful!');
     this.router.navigate(['/customer']);
   }
 

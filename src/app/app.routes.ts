@@ -14,9 +14,11 @@ import { MenuPageComponent } from './menu/menu-page';
 import { ChatBoat } from '../chat-boat/chat-boat';
 import { SupportLoginComponent } from './SupportTeam/supportlogin/supportlogin';
 import { ChatWindowComponent } from './SupportTeam/chatWindow/chatWindow';
+import { LoginPopupComponent } from './shared/login-popup/login-popup';
 
 export const routes: Routes = [
-  { path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.customerRoutes), canActivate: [authGuard] },
+  { path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.customerRoutes) },
+  { path: 'login', component: LoginPopupComponent },
   { path: '', component: HomePageComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'order-now', component: OrderNowComponent },

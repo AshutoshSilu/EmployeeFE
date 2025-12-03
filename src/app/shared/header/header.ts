@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { LoginPopupComponent } from '../login-popup/login-popup';
 import { ContactUsComponent } from '../ContactUS/contactus';
+import { FoodCategory } from '../../models/food.model';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -22,9 +23,70 @@ export class HeaderComponent {
   showMenuDropdown = signal(false);
   showLoginPopup = signal(false);
   showContactPopup = signal(false);
+  activeDropdown = '';
 
   isLoggedIn = computed(() => this.authService.isLoggedIn());
   currentUser = computed(() => this.authService.currentUser());
+  isCustomerDashboard = computed(() => this.router.url === '/customer');
+
+  foodCategories = signal<FoodCategory[]>([
+    {
+      id: 'appetizers',
+      name: 'Appetizers',
+      icon: '🥗',
+      isExpanded: false,
+      subcategories: [
+        { id: 'salads', name: 'Salads', route: '/menu/appetizers/salads' },
+        { id: 'soups', name: 'Soups', route: '/menu/appetizers/soups' },
+        { id: 'starters', name: 'Starters', route: '/menu/appetizers/starters' }
+      ]
+    },
+    {
+      id: 'main-course',
+      name: 'Main Course',
+      icon: '🍽️',
+      isExpanded: false,
+      subcategories: [
+        { id: 'rice', name: 'Rice Dishes', route: '/menu/main-course/rice' },
+        { id: 'curry', name: 'Curries', route: '/menu/main-course/curry' },
+        { id: 'biryani', name: 'Biryani', route: '/menu/main-course/biryani' },
+        { id: 'dal', name: 'Dal & Lentils', route: '/menu/main-course/dal' }
+      ]
+    },
+    {
+      id: 'breads',
+      name: 'Breads',
+      icon: '🥖',
+      isExpanded: false,
+      subcategories: [
+        { id: 'roti', name: 'Roti', route: '/menu/breads/roti' },
+        { id: 'naan', name: 'Naan', route: '/menu/breads/naan' },
+        { id: 'paratha', name: 'Paratha', route: '/menu/breads/paratha' }
+      ]
+    },
+    {
+      id: 'desserts',
+      name: 'Desserts',
+      icon: '🍰',
+      isExpanded: false,
+      subcategories: [
+        { id: 'sweets', name: 'Traditional Sweets', route: '/menu/desserts/sweets' },
+        { id: 'ice-cream', name: 'Ice Cream', route: '/menu/desserts/ice-cream' },
+        { id: 'cakes', name: 'Cakes', route: '/menu/desserts/cakes' }
+      ]
+    },
+    {
+      id: 'beverages',
+      name: 'Beverages',
+      icon: '🥤',
+      isExpanded: false,
+      subcategories: [
+        { id: 'hot', name: 'Hot Drinks', route: '/menu/beverages/hot' },
+        { id: 'cold', name: 'Cold Drinks', route: '/menu/beverages/cold' },
+        { id: 'juices', name: 'Fresh Juices', route: '/menu/beverages/juices' }
+      ]
+    }
+  ]);
 
   logout() {
     this.authService.logout();
@@ -103,5 +165,31 @@ export class HeaderComponent {
   navigateToCustomerDashboard(event: Event) {
     event.preventDefault();
     this.router.navigate(['/customer']);
+  }
+
+  toggleCategory(categoryId: string) {
+    this.foodCategories.update(categories =>
+      categories.map(cat =>
+        cat.id === categoryId
+          ? { ...cat, isExpanded: !cat.isExpanded }
+          : { ...cat, isExpanded: false }
+      )
+    );
+  }
+
+  navigateToSubcategory(route: string) {
+    this.router.navigate([route]);
+  }
+
+  showDropdown(menu: string) {
+    this.activeDropdown = menu;
+  }
+
+  hideDropdown(menu: string) {
+    setTimeout(() => {
+      if (this.activeDropdown === menu) {
+        this.activeDropdown = '';
+      }
+    }, 200);
   }
 }

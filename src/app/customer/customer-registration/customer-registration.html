@@ -33,6 +33,9 @@
           [(ngModel)]="customerData.email" 
           name="email" 
           required>
+        <small *ngIf="customerData.email && !isValidEmail(customerData.email)" class="error-text">
+          Please enter a valid email address
+        </small>
       </div>
 
       <div class="form-group">
@@ -42,6 +45,9 @@
           [(ngModel)]="customerData.mobile" 
           name="mobile" 
           required>
+        <small *ngIf="customerData.mobile && customerData.mobile.length < 10" class="error-text">
+          Mobile number must be at least 10 digits
+        </small>
       </div>
 
       <div class="form-group">
@@ -51,11 +57,35 @@
           [(ngModel)]="customerData.password" 
           name="password" 
           required>
+        <small *ngIf="customerData.password && customerData.password.length < 6" class="error-text">
+          Password must be at least 6 characters
+        </small>
       </div>
 
       <button type="submit" class="register-btn" [disabled]="!isFormValid()">
         Register Now
       </button>
     </form>
+  </div>
+</div>
+
+<app-customer-login 
+  *ngIf="showLoginPopup" 
+  (closeLogin)="closeLoginPopup()">
+</app-customer-login>
+
+<!-- Custom Popup -->
+<div *ngIf="showCustomPopup" class="popup-overlay">
+  <div class="popup-content">
+    <p>{{ popupMessage }}</p>
+    <button class="popup-btn" (click)="closeCustomPopup()">OK</button>
+  </div>
+</div>
+
+<!-- Customer Exists Popup -->
+<div *ngIf="showCustomerExistsPopup" class="popup-overlay">
+  <div class="popup-content">
+    <p>User already exists. Please <a href="#" class="login-link" (click)="openLoginFromExists($event)">login</a> to continue.</p>
+    <button class="popup-btn" (click)="closeCustomerExistsPopup()">Cancel</button>
   </div>
 </div>

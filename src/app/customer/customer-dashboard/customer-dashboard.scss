@@ -1,6 +1,14 @@
+:host {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
 .customer-dashboard {
-  min-height: 100vh;
+  min-height: calc(100vh - 200px);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 0;
+  padding: 0;
 }
 
 .hero-section {
